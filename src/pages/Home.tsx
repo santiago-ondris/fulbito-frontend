@@ -185,9 +185,12 @@ export default function Home() {
                   
                   <div className="text-center">
                     <p className="text-sm text-gray-500 mb-2">¿Ya tenés una liga?</p>
-                    <button className="text-green-600 text-sm font-medium hover:text-green-700">
+                    <Link
+                      to="/mis-ligas"
+                      className="text-green-600 text-sm font-medium hover:text-green-700"
+                    >
                       Ver mis ligas →
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

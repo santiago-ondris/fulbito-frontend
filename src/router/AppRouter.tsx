@@ -4,6 +4,7 @@ import Login from '../pages/Login';
 import CreateLeague from '../pages/CreateLeague';
 import LeagueView from '../pages/LeagueView';
 import LeagueAdmin from '../pages/admin/LeagueAdmin';
+import MyLeagues from '../pages/admin/MyLeagues';
 
 export default function AppRouter() {
   return (
@@ -21,7 +22,7 @@ export default function AppRouter() {
         {/* Admin (requiere auth - implementar ProtectedRoute después) */}
         <Route path="/crear-liga" element={<CreateLeague />} />
         <Route path="/admin/liga/:id" element={<LeagueAdmin />} />
-
+        <Route path="/mis-ligas" element={<MyLeagues />} /> 
         <Route path="/admin/liga/:id" element={<LeagueAdmin />} />
         
         {/* 404 - Opcional */}
