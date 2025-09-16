@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Share2, ExternalLink, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Share2, ExternalLink, AlertCircle, Users } from 'lucide-react';
 import leagueService, { type League } from '../services/leagueService';
 import LeagueHeader from '../components/LeagueView/LeagueHeader';
 import PlayerStandings from '../components/LeagueView/PlayerStandings';
@@ -142,7 +142,7 @@ export default function LeagueView() {
       {/* Navigation Bar */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-12">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-3 sm:py-0 sm:h-12 space-y-3 sm:space-y-0">
             <Link 
               to="/" 
               className="inline-flex items-center text-green-600 hover:text-green-700 text-sm font-medium"
@@ -151,13 +151,25 @@ export default function LeagueView() {
               Buscar otra liga
             </Link>
             
-            <button
-              onClick={handleShare}
-              className="inline-flex items-center px-3 py-1 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
-            >
-              <Share2 className="h-4 w-4 mr-1" />
-              Compartir
-            </button>
+            <div className="flex items-center justify-between sm:space-x-3">
+              <button
+                onClick={handleShare}
+                className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+              >
+                <Share2 className="h-4 w-4 mr-1" />
+                <span className="hidden sm:inline">Compartir</span>
+                <span className="sm:hidden">Compartir</span>
+              </button>
+
+              <Link
+                to={`/liga/${slug}/enfrentamientos`}
+                className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 transition-colors"
+              >
+                <Users className="h-4 w-4 mr-2" />
+                <span className="hidden sm:inline">Ver Enfrentamientos</span>
+                <span className="sm:hidden">Enfrentamientos</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

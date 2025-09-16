@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, Users, PlusCircle, LogIn, LogOut, User } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import CeltaImage from '../../public/celta.svg';
+import Lunes from '../../public/lunes.jpeg';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const { isAuthenticated, user, isLoading, logout } = useAuth();
-
-  const [catFact, setCatFact] = useState('');
-
-  useEffect(() => {
-    fetch('https://catfact.ninja/fact')
-      .then(res => res.json())
-      .then(data => setCatFact(data.fact));
-  }, []);
 
   const handleLeagueSearch = () => {
     if (!searchQuery.trim()) return;
@@ -117,7 +110,7 @@ export default function Home() {
                 Buscar Liga
               </h2>
               <p className="text-gray-600 mb-6">
-                Ingresá el nombre de tu liga para ver la tabla de posiciones y estadísticas
+                Ingresá el nombre de tu liga para ver la tabla de posiciones y enfrentamientos
               </p>
               
               <div className="flex space-x-3 group">
@@ -128,7 +121,7 @@ export default function Home() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleKeyPress}
-                    placeholder="Ej: Liga de los Martes, Fulbito Amigos..."
+                    placeholder="Ej: 414, Vlack..."
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 focus:shadow-lg focus:scale-105"
                   />
                 </div>
@@ -144,11 +137,7 @@ export default function Home() {
 
             <div className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-lg border border-orange-200 p-6">
               <div className="max-w-sm w-full text-center">
-                <h3 className="text-lg font-semibold text-orange-900 mb-4">🐱 Dato Random de Gatos</h3>
-                <p className="text-sm text-orange-700 italic mb-4">
-                  {catFact || 'Cargando sabiduría felina...'}
-                </p>
-                <p className="text-xs text-orange-600">Porque el fútbol necesita más gatos 🏈</p>
+                <img src={Lunes} alt="Futbol lunes" className="w-full h-auto" />
               </div>
             </div>
           </div>
@@ -234,10 +223,10 @@ export default function Home() {
         <div className="mt-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-gray-900 via-green-700 to-green-600 bg-clip-text">
-              Todo lo que necesitás para tu liga
+              AGRADECIMIENTOS
             </h2>
             <p className="text-gray-600 text-lg">
-              Llevá el control de tus partidos de fútbol con amigos de manera simple y organizada
+              No podria haberlo hecho sin
             </p>
           </div>
           
@@ -249,10 +238,10 @@ export default function Home() {
                 <div className="absolute -inset-2 bg-green-400 rounded-2xl opacity-20 group-hover:animate-pulse-glow"></div>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-700 transition-colors duration-300">
-                Tabla de Posiciones
+                Mi gringo
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Mirá quién lidera, las rachas y todas las estadísticas de cada jugador
+                Completa los envios gringo cada vez que veas esto te vas a acordar de mi
               </p>
             </div>
             
@@ -263,10 +252,10 @@ export default function Home() {
                 <div className="absolute -inset-2 bg-blue-400 rounded-2xl opacity-20 group-hover:animate-pulse-glow"></div>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">
-                Carga de Partidos
+                Ger
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Agregá resultados, goles y formá los equipos de cada partido fácilmente
+                Por manejar el arte de armar bien los equipos
               </p>
             </div>
             
@@ -277,10 +266,10 @@ export default function Home() {
                 <div className="absolute -inset-2 bg-purple-400 rounded-2xl opacity-20 group-hover:animate-pulse-glow"></div>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-700 transition-colors duration-300">
-                Acceso Público
+                Viejito
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Compartí tu liga con cualquiera sin necesidad de crear cuentas
+                Por estar a mi lado mientras hacia esto
               </p>
             </div>
           </div>

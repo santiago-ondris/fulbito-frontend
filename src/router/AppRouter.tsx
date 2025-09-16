@@ -5,6 +5,7 @@ import CreateLeague from '../pages/CreateLeague';
 import LeagueView from '../pages/LeagueView';
 import LeagueAdmin from '../pages/admin/LeagueAdmin';
 import MyLeagues from '../pages/admin/MyLeagues';
+import MatchupsView from '../pages/MatchupsView';
 
 export default function AppRouter() {
   return (
@@ -18,6 +19,7 @@ export default function AppRouter() {
         
         {/* Liga pública */}
         <Route path="/liga/:slug" element={<LeagueView />} />
+        <Route path="/liga/:slug/enfrentamientos" element={<MatchupsView />} />
         
         {/* Admin (requiere auth - implementar ProtectedRoute después) */}
         <Route path="/crear-liga" element={<CreateLeague />} />
