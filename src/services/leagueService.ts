@@ -16,8 +16,10 @@ export interface CreateLeagueRequest {
   pointsPerGoal: number;
   isWinStreakEnabled: boolean;
   pointsPerWinInStreak: number;
+  minWinStreakToActivate: number;
   isLossStreakEnabled: boolean;
   pointsPerLossInStreak: number;
+  minLossStreakToActivate: number;
   isMvpEnabled: boolean;
   pointsPerMvp: number;
 
@@ -55,9 +57,11 @@ export interface LeagueScoring {
   isGoalsEnabled: boolean;
   pointsPerGoal: number;
   isWinStreakEnabled: boolean;
+  minWinStreakToActivate: number;
   pointsPerWinInStreak: number;
   isLossStreakEnabled: boolean;
   pointsPerLossInStreak: number;
+  minLossStreakToActivate: number;
   isMvpEnabled: boolean;
   pointsPerMvp: number;
 }

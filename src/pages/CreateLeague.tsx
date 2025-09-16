@@ -36,8 +36,10 @@ export default function CreateLeague() {
     pointsPerWinInStreak: 2,
     isLossStreakEnabled: false,
     pointsPerLossInStreak: -1,
+    minWinStreakToActivate: 3,
+    minLossStreakToActivate: 3,
     isMvpEnabled: false,
-    pointsPerMvp: 5,
+    pointsPerMvp: 1,
     
     // Jugadores iniciales
     players: [
@@ -50,6 +52,7 @@ export default function CreateLeague() {
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Datos que se envían:', formData);
     setIsLoading(true);
     setError('');
     setSuccess('');
@@ -325,8 +328,21 @@ export default function CreateLeague() {
                         onChange={(e) => setFormData({ ...formData, pointsPerWinInStreak: Number(e.target.value) })}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
                       />
+                      <div className="mt-3 w-32">
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Mínimo para activar racha
+                        </label>
+                        <input
+                          type="number"
+                          min="2"
+                          value={formData.minWinStreakToActivate}
+                          onChange={(e) => setFormData({ ...formData, minWinStreakToActivate: Number(e.target.value) })}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                        />
+                      </div>
                     </div>
                   )}
+                  
                 </div>
               </div>
 
@@ -357,6 +373,20 @@ export default function CreateLeague() {
                         onChange={(e) => setFormData({ ...formData, pointsPerLossInStreak: Number(e.target.value) })}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
                       />
+                      
+                      {/* ← AGREGAR ESTO: */}
+                      <div className="mt-3 w-32">
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Mínimo para activar racha
+                        </label>
+                        <input
+                          type="number"
+                          min="2"
+                          value={formData.minLossStreakToActivate}
+                          onChange={(e) => setFormData({ ...formData, minLossStreakToActivate: Number(e.target.value) })}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                        />
+                      </div>
                     </div>
                   )}
                 </div>

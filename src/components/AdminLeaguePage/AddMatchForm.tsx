@@ -370,14 +370,14 @@ export default function AddMatchForm({
                   const playerId = player.type === 'existing' ? player.existingPlayer?.id : `new-${player.newPlayer?.firstName}-${player.newPlayer?.lastName}`;
                   const playerName = player.type === 'existing' ? player.existingPlayer?.fullName : `${player.newPlayer?.firstName} ${player.newPlayer?.lastName}`;
                   return (
-                    <option key={playerId} value={player.type === 'existing' ? playerId : ''} disabled={player.type !== 'existing'}>
-                      {playerName} {player.type !== 'existing' && '(Jugador nuevo - no disponible para MVP)'}
+                    <option key={playerId} value={playerId}>
+                      {playerName}
                     </option>
                   );
                 })}
               </select>
               <p className="text-xs text-purple-600 mt-2">
-                Solo jugadores existentes pueden ser seleccionados como MVP
+                Selecciona el mejor jugador del partido
               </p>
             </div>
           )}

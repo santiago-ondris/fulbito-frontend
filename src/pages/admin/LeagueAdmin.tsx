@@ -262,6 +262,8 @@ export default function LeagueAdmin() {
     );
   }
 
+  // console.log('Liga scoring:', league.scoring);
+  // console.log('MVP enabled:', league.scoring.isMvpEnabled)
   return (
     <div className="min-h-screen bg-gray-50">
       
@@ -300,7 +302,7 @@ export default function LeagueAdmin() {
             playersPerTeam={league.playersPerTeam}
             isGoalsEnabled={league.scoring.isGoalsEnabled}
             onSubmit={handleAddMatch}
-            isMvpEnabled={league?.scoring?.isMvpEnabled || false}
+            isMvpEnabled={true}
           />
         )}
 
