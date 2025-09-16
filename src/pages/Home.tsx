@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, Users, PlusCircle, LogIn, LogOut, User } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
+import CeltaImage from '../../public/celta.svg';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const { isAuthenticated, user, isLoading, logout } = useAuth();
+
+  const [catFact, setCatFact] = useState('');
+
+  useEffect(() => {
+    fetch('https://catfact.ninja/fact')
+      .then(res => res.json())
+      .then(data => setCatFact(data.fact));
+  }, []);
 
   const handleLeagueSearch = () => {
     if (!searchQuery.trim()) return;
@@ -37,17 +46,24 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50/30">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="bg-white/90 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-3">
-                <Users className="h-8 w-8 text-green-600" />
-                <div>
-                  <h1 className="text-xl font-semibold text-gray-900">Fulbito</h1>
-                  <p className="text-xs text-gray-500">Maestro Gringo</p>
+              <div className="flex items-center space-x-3 group">
+                <div className="relative">
+                  <Users className="h-8 w-8 text-green-600 group-hover:animate-heartbeat transition-all duration-300" />
+                  <div className="absolute -inset-1 bg-green-400 rounded-full opacity-30 group-hover:animate-pulse-glow"></div>
+                </div>
+                <div className="transition-all duration-300 group-hover:scale-105">
+                  <h1 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-green-700 bg-clip-text text-transparent">
+                    Fulbito
+                  </h1>
+                  <p className="text-xs text-gray-500 group-hover:text-green-600 transition-colors duration-300">
+                    Maestro Gringo
+                  </p>
                 </div>
               </div>
             </div>
@@ -59,15 +75,17 @@ export default function Home() {
               ) : isAuthenticated && user ? (
                 // Authenticated state
                 <div className="flex items-center space-x-3">
-                  <div className="flex items-center space-x-2 text-sm">
-                    <User className="h-4 w-4 text-gray-500" />
+                  <div className="flex items-center space-x-2 text-sm group">
+                    <User className="h-4 w-4 text-gray-500 group-hover:text-green-600 transition-colors duration-300" />
                     <span className="text-gray-700">
-                      Hola, <span className="font-medium">{user.firstName}</span>
+                      Hola, <span className="font-medium bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+                        {user.firstName}
+                      </span>
                     </span>
                   </div>
                   <button
                     onClick={handleLogout}
-                    className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 transition-colors"
+                    className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-red-50 hover:border-red-300 hover:text-red-600 transition-all duration-300 transform hover:scale-105"
                   >
                     <LogOut className="h-4 w-4 mr-2" />
                     Cerrar Sesión
@@ -77,7 +95,7 @@ export default function Home() {
                 // Not authenticated state
                 <Link 
                   to="/login"
-                  className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 transition-colors"
+                  className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-green-50 hover:border-green-300 hover:text-green-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md"
                 >
                   <LogIn className="h-4 w-4 mr-2" />
                   Iniciar Sesión
@@ -93,77 +111,44 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
           {/* Liga Search Section */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-8">
             <div>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+              <h2 className="text-3xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-gray-900 via-green-700 to-green-600 bg-clip-text">
                 Buscar Liga
               </h2>
               <p className="text-gray-600 mb-6">
                 Ingresá el nombre de tu liga para ver la tabla de posiciones y estadísticas
               </p>
               
-              <div className="flex space-x-3">
+              <div className="flex space-x-3 group">
                 <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 transition-all duration-300 group-focus-within:text-green-500 group-focus-within:scale-110" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleKeyPress}
                     placeholder="Ej: Liga de los Martes, Fulbito Amigos..."
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 focus:shadow-lg focus:scale-105"
                   />
                 </div>
                 <button
                   onClick={handleLeagueSearch}
                   disabled={!searchQuery.trim()}
-                  className="px-6 py-3 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:hover:scale-100 disabled:hover:shadow-none"
                 >
                   Buscar
                 </button>
               </div>
             </div>
 
-            {/* Recent or Popular Leagues */}
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Ligas Populares</h3>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-md">
-                  <div>
-                    <p className="font-medium text-gray-900">Liga de los Viernes</p>
-                    <p className="text-sm text-gray-500">12 jugadores • 8 partidos</p>
-                  </div>
-                  <Link 
-                    to="/liga/liga-de-los-viernes"
-                    className="text-green-600 text-sm font-medium hover:text-green-700"
-                  >
-                    Ver →
-                  </Link>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-md">
-                  <div>
-                    <p className="font-medium text-gray-900">Fulbito Barrio Norte</p>
-                    <p className="text-sm text-gray-500">16 jugadores • 15 partidos</p>
-                  </div>
-                  <Link 
-                    to="/liga/fulbito-barrio-norte"
-                    className="text-green-600 text-sm font-medium hover:text-green-700"
-                  >
-                    Ver →
-                  </Link>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-md">
-                  <div>
-                    <p className="font-medium text-gray-900">Champions del Domingo</p>
-                    <p className="text-sm text-gray-500">10 jugadores • 12 partidos</p>
-                  </div>
-                  <Link 
-                    to="/liga/champions-del-domingo"
-                    className="text-green-600 text-sm font-medium hover:text-green-700"
-                  >
-                    Ver →
-                  </Link>
-                </div>
+            <div className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-lg border border-orange-200 p-6">
+              <div className="max-w-sm w-full text-center">
+                <h3 className="text-lg font-semibold text-orange-900 mb-4">🐱 Dato Random de Gatos</h3>
+                <p className="text-sm text-orange-700 italic mb-4">
+                  {catFact || 'Cargando sabiduría felina...'}
+                </p>
+                <p className="text-xs text-orange-600">Porque el fútbol necesita más gatos 🏈</p>
               </div>
             </div>
           </div>
@@ -172,14 +157,22 @@ export default function Home() {
           <div className="space-y-6">
             {isAuthenticated ? (
               // Authenticated sidebar
-              <div className="bg-white rounded-lg border border-gray-200 p-6">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Panel de Administrador</h3>
+              <div className="bg-gradient-to-br from-white to-green-50/50 rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-500 group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="relative">
+                    <User className="h-6 w-6 text-green-600 group-hover:animate-heartbeat" />
+                    <div className="absolute -inset-1 bg-green-400 rounded-full opacity-20 group-hover:animate-pulse-glow"></div>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-700 transition-colors duration-300">
+                    Panel de Administrador
+                  </h3>
+                </div>
                 <div className="space-y-4">
                   <Link 
                     to="/crear-liga"
-                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                   >
-                    <PlusCircle className="h-4 w-4 mr-2" />
+                    <PlusCircle className="h-4 w-4 mr-2 group-hover:animate-bounce" />
                     Crear Nueva Liga
                   </Link>
                   
@@ -187,7 +180,7 @@ export default function Home() {
                     <p className="text-sm text-gray-500 mb-2">¿Ya tenés una liga?</p>
                     <Link
                       to="/mis-ligas"
-                      className="text-green-600 text-sm font-medium hover:text-green-700"
+                      className="text-green-600 text-sm font-medium hover:text-green-700 hover:underline transition-all duration-300"
                     >
                       Ver mis ligas →
                     </Link>
@@ -196,8 +189,16 @@ export default function Home() {
               </div>
             ) : (
               // Not authenticated sidebar
-              <div className="bg-white rounded-lg border border-gray-200 p-6">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">¿Sos administrador?</h3>
+              <div className="bg-gradient-to-br from-white to-blue-50/50 rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-500 group">
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className="relative">
+                    <LogIn className="h-6 w-6 text-blue-600 group-hover:animate-heartbeat" />
+                    <div className="absolute -inset-1 bg-blue-400 rounded-full opacity-20 group-hover:animate-pulse-glow"></div>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
+                    ¿Sos administrador?
+                  </h3>
+                </div>
                 <div className="space-y-4">
                   <p className="text-sm text-gray-600 mb-4">
                     Iniciá sesión para crear y administrar tus ligas
@@ -205,7 +206,7 @@ export default function Home() {
                   
                   <Link 
                     to="/login"
-                    className="w-full inline-flex items-center justify-center px-4 py-3 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 transition-colors"
+                    className="w-full inline-flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md"
                   >
                     <LogIn className="h-4 w-4 mr-2" />
                     Iniciar Sesión
@@ -220,22 +221,10 @@ export default function Home() {
               </div>
             )}
 
-            {/* Quick Stats */}
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Estadísticas</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Ligas activas</span>
-                  <span className="font-medium text-gray-900">24</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Jugadores registrados</span>
-                  <span className="font-medium text-gray-900">456</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Partidos jugados</span>
-                  <span className="font-medium text-gray-900">1,234</span>
-                </div>
+
+            <div className="bg-white rounded-lg border border-gray-200 p-6 flex items-center justify-center">
+              <div className="max-w-sm w-full">
+                <img src={CeltaImage} alt="Celta - Hoy Juega" className="w-full h-auto" />
               </div>
             </div>
           </div>
@@ -243,42 +232,54 @@ export default function Home() {
 
         {/* Features Section */}
         <div className="mt-16">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-gray-900 via-green-700 to-green-600 bg-clip-text">
               Todo lo que necesitás para tu liga
             </h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-lg">
               Llevá el control de tus partidos de fútbol con amigos de manera simple y organizada
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-lg border border-gray-200 p-6 text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
-                <Users className="h-6 w-6 text-green-600" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Feature 1 */}
+            <div className="group bg-white rounded-xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+              <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl mb-6 group-hover:animate-float">
+                <Users className="h-8 w-8 text-green-600 group-hover:animate-heartbeat" />
+                <div className="absolute -inset-2 bg-green-400 rounded-2xl opacity-20 group-hover:animate-pulse-glow"></div>
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Tabla de Posiciones</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-700 transition-colors duration-300">
+                Tabla de Posiciones
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Mirá quién lidera, las rachas y todas las estadísticas de cada jugador
               </p>
             </div>
             
-            <div className="bg-white rounded-lg border border-gray-200 p-6 text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
-                <PlusCircle className="h-6 w-6 text-green-600" />
+            {/* Feature 2 */}
+            <div className="group bg-white rounded-xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+              <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl mb-6 group-hover:animate-float" style={{ animationDelay: '0.2s' }}>
+                <PlusCircle className="h-8 w-8 text-blue-600 group-hover:animate-heartbeat" />
+                <div className="absolute -inset-2 bg-blue-400 rounded-2xl opacity-20 group-hover:animate-pulse-glow"></div>
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Carga de Partidos</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">
+                Carga de Partidos
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Agregá resultados, goles y formá los equipos de cada partido fácilmente
               </p>
             </div>
             
-            <div className="bg-white rounded-lg border border-gray-200 p-6 text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
-                <Search className="h-6 w-6 text-green-600" />
+            {/* Feature 3 */}
+            <div className="group bg-white rounded-xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+              <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl mb-6 group-hover:animate-float" style={{ animationDelay: '0.4s' }}>
+                <Search className="h-8 w-8 text-purple-600 group-hover:animate-heartbeat" />
+                <div className="absolute -inset-2 bg-purple-400 rounded-2xl opacity-20 group-hover:animate-pulse-glow"></div>
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Acceso Público</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-700 transition-colors duration-300">
+                Acceso Público
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Compartí tu liga con cualquiera sin necesidad de crear cuentas
               </p>
             </div>
