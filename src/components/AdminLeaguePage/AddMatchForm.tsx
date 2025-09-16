@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calendar, Trophy, Save, Eye, RotateCcw, AlertCircle } from 'lucide-react';
+import { Calendar, Trophy, Save, Eye, RotateCcw, AlertCircle, Crown } from 'lucide-react';
 import TeamBuilder from './TeamBuilder';
 import LoadingSpinner from './LoadingSpinner';
 import MatchPreview from './MatchPreview';
@@ -26,6 +26,7 @@ interface AddMatchFormProps {
   isGoalsEnabled: boolean;
   onSubmit: (matchData: MatchData) => Promise<void>;
   onCancel?: () => void;
+  isMvpEnabled: boolean;
 }
 
 export interface MatchData {
@@ -34,6 +35,7 @@ export interface MatchData {
   matchDate: string; // ISO string
   team1Players: TeamPlayer[];
   team2Players: TeamPlayer[];
+  mvpPlayerId?: string;
 }
 
 type FormStep = 'teams' | 'scores' | 'preview';
@@ -43,7 +45,8 @@ export default function AddMatchForm({
   playersPerTeam,
   isGoalsEnabled,
   onSubmit,
-  onCancel
+  onCancel,
+  isMvpEnabled
 }: AddMatchFormProps) {
 
   const [currentStep, setCurrentStep] = useState<FormStep>('teams');
@@ -58,6 +61,7 @@ export default function AddMatchForm({
   const [matchDate, setMatchDate] = useState<string>(
     new Date().toISOString().slice(0, 16) // YYYY-MM-DDTHH:MM format for datetime-local
   );
+  const [mvpPlayerId, setMvpPlayerId] = useState<string>('');
 
   // Reset error when form changes
   useEffect(() => {
@@ -178,7 +182,8 @@ export default function AddMatchForm({
         team2Score,
         matchDate: new Date(matchDate).toISOString(),
         team1Players,
-        team2Players
+        team2Players,
+        mvpPlayerId: mvpPlayerId || undefined
       };
       
       await onSubmit(matchData);
@@ -344,6 +349,36 @@ export default function AddMatchForm({
                   </p>
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* MVP Selection (if enabled) */}
+          {isMvpEnabled && (
+            <div className="mt-6 bg-purple-50 rounded-md p-4">
+              <h4 className="text-sm font-medium text-purple-900 mb-3 flex items-center">
+                <Crown className="h-4 w-4 mr-2" />
+                Seleccionar MVP del Partido
+              </h4>
+              <select
+                value={mvpPlayerId}
+                onChange={(e) => setMvpPlayerId(e.target.value)}
+                disabled={isLoading}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 disabled:bg-gray-50"
+              >
+                <option value="">Sin MVP seleccionado</option>
+                {[...team1Players, ...team2Players].map((player) => {
+                  const playerId = player.type === 'existing' ? player.existingPlayer?.id : `new-${player.newPlayer?.firstName}-${player.newPlayer?.lastName}`;
+                  const playerName = player.type === 'existing' ? player.existingPlayer?.fullName : `${player.newPlayer?.firstName} ${player.newPlayer?.lastName}`;
+                  return (
+                    <option key={playerId} value={player.type === 'existing' ? playerId : ''} disabled={player.type !== 'existing'}>
+                      {playerName} {player.type !== 'existing' && '(Jugador nuevo - no disponible para MVP)'}
+                    </option>
+                  );
+                })}
+              </select>
+              <p className="text-xs text-purple-600 mt-2">
+                Solo jugadores existentes pueden ser seleccionados como MVP
+              </p>
             </div>
           )}
         </div>

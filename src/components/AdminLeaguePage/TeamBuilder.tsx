@@ -42,7 +42,7 @@ export default function TeamBuilder({
     const ids = new Set<string>();
     
     [...team1Players, ...team2Players].forEach(teamPlayer => {
-      if (teamPlayer.type === 'existing' && teamPlayer.existingPlayer) {
+      if (teamPlayer && teamPlayer.type === 'existing' && teamPlayer.existingPlayer) {
         ids.add(teamPlayer.existingPlayer.id);
       }
     });

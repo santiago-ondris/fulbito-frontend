@@ -36,6 +36,8 @@ export default function CreateLeague() {
     pointsPerWinInStreak: 2,
     isLossStreakEnabled: false,
     pointsPerLossInStreak: -1,
+    isMvpEnabled: false,
+    pointsPerMvp: 5,
     
     // Jugadores iniciales
     players: [
@@ -359,6 +361,38 @@ export default function CreateLeague() {
                   )}
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* MVP */}
+          <div className="flex items-start space-x-3">
+            <input
+              type="checkbox"
+              id="mvpEnabled"
+              checked={formData.isMvpEnabled}
+              onChange={(e) => setFormData({ ...formData, isMvpEnabled: e.target.checked })}
+              className="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+            />
+            <div className="flex-1">
+              <label htmlFor="mvpEnabled" className="text-sm font-medium text-gray-700">
+                Jugador MVP del Partido
+              </label>
+              <p className="text-xs text-gray-500 mt-1">
+                Permite seleccionar un MVP por partido para puntos extra
+              </p>
+              {formData.isMvpEnabled && (
+                <div className="mt-3 w-32">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Puntos por MVP
+                  </label>
+                  <input
+                    type="number"
+                    value={formData.pointsPerMvp}
+                    onChange={(e) => setFormData({ ...formData, pointsPerMvp: Number(e.target.value) })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  />
+                </div>
+              )}
             </div>
           </div>
 

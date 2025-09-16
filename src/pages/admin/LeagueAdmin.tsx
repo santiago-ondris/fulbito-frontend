@@ -201,7 +201,8 @@ export default function LeagueAdmin() {
         team2Score: matchData.team2Score,
         matchDate: matchData.matchDate,
         team1Players,
-        team2Players
+        team2Players,
+        mvpPlayerId: matchData.mvpPlayerId
       };
 
       const response = await matchService.addMatch(id, addMatchRequest);
@@ -299,6 +300,7 @@ export default function LeagueAdmin() {
             playersPerTeam={league.playersPerTeam}
             isGoalsEnabled={league.scoring.isGoalsEnabled}
             onSubmit={handleAddMatch}
+            isMvpEnabled={league?.scoring?.isMvpEnabled || false}
           />
         )}
 

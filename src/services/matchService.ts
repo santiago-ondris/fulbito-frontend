@@ -7,6 +7,7 @@ export interface AddMatchRequest {
   matchDate: string; // ISO string
   team1Players: PlayerInTeamRequest[];
   team2Players: PlayerInTeamRequest[];
+  mvpPlayerId?: string;
 }
 
 export interface PlayerInTeamRequest {
@@ -147,6 +148,17 @@ class MatchService {
     if (matchData.team1Score < 0 || matchData.team2Score < 0) {
       errors.push('Los puntajes no pueden ser negativos');
     }
+
+    // Validar que MVP esté en el partido (si se especifica)
+    if (matchData.mvpPlayerId) {
+      const allPlayerIds = allPlayers
+        .filter(p => p.playerId)
+        .map(p => p.playerId);
+      
+      if (!allPlayerIds.includes(matchData.mvpPlayerId)) {
+        errors.push('El jugador MVP debe estar participando en el partido');
+      }
+    } 
 
     return errors;
   }

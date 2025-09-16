@@ -12,6 +12,8 @@ interface LeagueScoring {
   pointsPerWinInStreak: number;
   isLossStreakEnabled: boolean;
   pointsPerLossInStreak: number;
+  isMvpEnabled: boolean;
+  pointsPerMvp: number;
 }
 
 interface ScoringInfoProps {
@@ -71,7 +73,7 @@ export default function ScoringInfo({ scoring }: ScoringInfoProps) {
             </div>
 
             {/* Métricas opcionales */}
-            {(scoring.isGoalsEnabled || scoring.isWinStreakEnabled || scoring.isLossStreakEnabled) && (
+            {(scoring.isGoalsEnabled || scoring.isWinStreakEnabled || scoring.isLossStreakEnabled || scoring.isMvpEnabled) && (
               <div>
                 <h3 className="text-sm font-medium text-gray-900 mb-3">
                   Métricas Adicionales
@@ -110,6 +112,18 @@ export default function ScoringInfo({ scoring }: ScoringInfoProps) {
                       </div>
                       <span className="text-sm font-bold text-red-600">
                         {scoring.pointsPerLossInStreak} por derrota en racha
+                      </span>
+                    </div>
+                  )}
+
+                  {scoring.isMvpEnabled && (
+                    <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                      <div className="flex items-center space-x-2">
+                        <Trophy className="h-4 w-4 text-purple-600" />
+                        <span className="text-sm font-medium text-purple-900">MVP del Partido</span>
+                      </div>
+                      <span className="text-sm font-bold text-purple-600">
+                        +{scoring.pointsPerMvp} puntos
                       </span>
                     </div>
                   )}

@@ -18,7 +18,9 @@ export interface CreateLeagueRequest {
   pointsPerWinInStreak: number;
   isLossStreakEnabled: boolean;
   pointsPerLossInStreak: number;
-  
+  isMvpEnabled: boolean;
+  pointsPerMvp: number;
+
   // Jugadores iniciales
   players: CreatePlayerRequest[];
 }
@@ -56,6 +58,8 @@ export interface LeagueScoring {
   pointsPerWinInStreak: number;
   isLossStreakEnabled: boolean;
   pointsPerLossInStreak: number;
+  isMvpEnabled: boolean;
+  pointsPerMvp: number;
 }
 
 export interface PlayerStanding {
