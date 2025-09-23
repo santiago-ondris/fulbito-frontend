@@ -65,13 +65,13 @@ class AdminService {
       return {
         status: 'starting',
         label: 'Empezando',
-        color: 'bg-blue-100 text-blue-800'
+        color: 'bg-pink-100 text-pink-800'
       };
     } else if (totalMatches > 0 && totalMatches < 5) {
       return {
         status: 'active',
         label: 'Activa',
-        color: 'bg-green-100 text-green-800'
+        color: 'bg-purple-100 text-purple-800'
       };
     } else {
       return {

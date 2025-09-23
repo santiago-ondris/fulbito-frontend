@@ -119,8 +119,8 @@ export default function PlayersList({
                 {/* Player name */}
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
-                    <div className="flex-shrink-0 h-8 w-8 bg-green-100 rounded-full flex items-center justify-center">
-                      <span className="text-sm font-medium text-green-700">
+                    <div className="flex-shrink-0 h-8 w-8 bg-purple-100 rounded-full flex items-center justify-center">
+                      <span className="text-sm font-medium text-purple-700">
                         {player.firstName.charAt(0).toUpperCase()}
                       </span>
                     </div>
@@ -146,14 +146,14 @@ export default function PlayersList({
                     <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-900">
                       {player.matchesPlayed || 0}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-green-600 font-medium">
+                    <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-purple-600 font-medium">
                       {player.matchesWon || 0}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-bold text-gray-900">
                       {player.totalPoints || 0}
                     </td>
                     {isGoalsEnabled && (
-                      <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-blue-600 font-medium">
+                      <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-pink-600 font-medium">
                         {player.goalsFor || 0}
                       </td>
                     )}
@@ -165,7 +165,7 @@ export default function PlayersList({
                   <div className="flex justify-end space-x-2">
                     <button
                       onClick={() => onEditPlayer(player)}
-                      className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 p-1 rounded transition-colors"
+                      className="text-pink-600 hover:text-pink-700 hover:bg-pink-50 p-1 rounded transition-colors"
                       title="Editar jugador"
                     >
                       <Edit2 className="h-4 w-4" />
@@ -193,8 +193,8 @@ export default function PlayersList({
             {/* Player header */}
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center space-x-3">
-                <div className="flex-shrink-0 h-10 w-10 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-sm font-medium text-green-700">
+                <div className="flex-shrink-0 h-10 w-10 bg-purple-100 rounded-full flex items-center justify-center">
+                  <span className="text-sm font-medium text-purple-700">
                     {player.firstName.charAt(0).toUpperCase()}
                   </span>
                 </div>
@@ -213,7 +213,7 @@ export default function PlayersList({
               <div className="flex space-x-2">
                 <button
                   onClick={() => onEditPlayer(player)}
-                  className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 p-2 rounded transition-colors"
+                  className="text-pink-600 hover:text-pink-700 hover:bg-pink-50 p-2 rounded transition-colors"
                 >
                   <Edit2 className="h-4 w-4" />
                 </button>
@@ -233,13 +233,13 @@ export default function PlayersList({
                   <p className="text-xs text-gray-600">Partidos</p>
                   <p className="text-sm font-medium text-gray-900">{player.matchesPlayed}</p>
                 </div>
-                <div className="bg-green-50 rounded p-2">
-                  <p className="text-xs text-green-600">Victorias</p>
-                  <p className="text-sm font-medium text-green-700">{player.matchesWon}</p>
+                <div className="bg-purple-50 rounded p-2">
+                  <p className="text-xs text-purple-600">Victorias</p>
+                  <p className="text-sm font-medium text-purple-700">{player.matchesWon}</p>
                 </div>
-                <div className="bg-blue-50 rounded p-2">
-                  <p className="text-xs text-blue-600">Puntos</p>
-                  <p className="text-sm font-medium text-blue-700">{player.totalPoints}</p>
+                <div className="bg-pink-50 rounded p-2">
+                  <p className="text-xs text-pink-600">Puntos</p>
+                  <p className="text-sm font-medium text-pink-700">{player.totalPoints}</p>
                 </div>
                 {isGoalsEnabled && (
                   <div className="bg-yellow-50 rounded p-2">

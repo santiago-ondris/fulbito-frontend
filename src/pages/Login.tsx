@@ -91,7 +91,7 @@ export default function Login() {
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         {/* Header */}
         <div className="flex justify-center items-center space-x-2 mb-6">
-          <Users className="h-10 w-10 text-green-600" />
+          <Users className="h-10 w-10 text-purple-600" />
           <div className="text-center">
             <h1 className="text-2xl font-semibold text-gray-900">Fulbito</h1>
             <p className="text-sm text-gray-500">Maestro Gringo</p>
@@ -105,7 +105,7 @@ export default function Login() {
           {isLogin ? '¿No tenés cuenta?' : '¿Ya tenés cuenta?'}{' '}
           <button
             onClick={switchMode}
-            className="font-medium text-green-600 hover:text-green-500"
+            className="font-medium text-purple-600 hover:text-purple-500"
           >
             {isLogin ? 'Registrate' : 'Iniciá sesión'}
           </button>
@@ -123,8 +123,8 @@ export default function Login() {
           )}
           
           {success && (
-            <div className="mb-4 bg-green-50 border border-green-200 rounded-md p-4">
-              <p className="text-sm text-green-600">{success}</p>
+            <div className="mb-4 bg-purple-50 border border-purple-200 rounded-md p-4">
+              <p className="text-sm text-purple-600">{success}</p>
             </div>
           )}
 
@@ -143,7 +143,7 @@ export default function Login() {
                     required
                     value={loginForm.email}
                     onChange={(e) => setLoginForm({...loginForm, email: e.target.value})}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                     placeholder="tu@email.com"
                   />
                 </div>
@@ -161,7 +161,7 @@ export default function Login() {
                     required
                     value={loginForm.password}
                     onChange={(e) => setLoginForm({...loginForm, password: e.target.value})}
-                    className="appearance-none block w-full px-3 py-2 pr-10 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    className="appearance-none block w-full px-3 py-2 pr-10 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                     placeholder="Tu contraseña"
                   />
                   <button
@@ -182,7 +182,7 @@ export default function Login() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
@@ -209,7 +209,7 @@ export default function Login() {
                     required
                     value={registerForm.firstName}
                     onChange={(e) => setRegisterForm({...registerForm, firstName: e.target.value})}
-                    className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                     placeholder="Juan"
                   />
                 </div>
@@ -223,7 +223,7 @@ export default function Login() {
                     required
                     value={registerForm.lastName}
                     onChange={(e) => setRegisterForm({...registerForm, lastName: e.target.value})}
-                    className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                     placeholder="Pérez"
                   />
                 </div>
@@ -240,7 +240,7 @@ export default function Login() {
                   required
                   value={registerForm.email}
                   onChange={(e) => setRegisterForm({...registerForm, email: e.target.value})}
-                  className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                  className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -257,7 +257,7 @@ export default function Login() {
                     required
                     value={registerForm.password}
                     onChange={(e) => setRegisterForm({...registerForm, password: e.target.value})}
-                    className="appearance-none block w-full px-3 py-2 pr-10 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    className="appearance-none block w-full px-3 py-2 pr-10 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500"
                     placeholder="Mínimo 6 caracteres"
                   />
                   <button
@@ -278,7 +278,7 @@ export default function Login() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
@@ -297,7 +297,7 @@ export default function Login() {
           <div className="mt-6 text-center">
             <Link 
               to="/" 
-              className="text-green-600 hover:text-green-700 text-sm font-medium"
+              className="text-purple-600 hover:text-purple-700 text-sm font-medium"
             >
               ← Volver al inicio
             </Link>

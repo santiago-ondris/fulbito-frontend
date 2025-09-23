@@ -1,4 +1,4 @@
-import { Calendar, Users, Target } from 'lucide-react';
+import { Calendar, Users, Target, Trophy } from 'lucide-react';
 
 interface PlayerInMatch {
   playerId: string;
@@ -15,14 +15,16 @@ interface MatchSummary {
   team2Score: number;
   team1Players: PlayerInMatch[];
   team2Players: PlayerInMatch[];
+  mvpPlayerId?: string;
 }
 
 interface MatchHistoryProps {
   matches: MatchSummary[];
   isGoalsEnabled: boolean;
+  isMvpEnabled: boolean;
 }
 
-export default function MatchHistory({ matches, isGoalsEnabled }: MatchHistoryProps) {
+export default function MatchHistory({ matches, isGoalsEnabled, isMvpEnabled }: MatchHistoryProps) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('es-AR', {
@@ -33,12 +35,12 @@ export default function MatchHistory({ matches, isGoalsEnabled }: MatchHistoryPr
   };
 
   const getResultColor = (team1Score: number, team2Score: number, isTeam1: boolean) => {
-    if (team1Score === team2Score) return 'text-yellow-600 bg-yellow-50 border-yellow-200';
+    if (team1Score === team2Score) return 'text-[#404040] bg-[#f7f7f7] border-yellow-200';
     
     const isWinner = isTeam1 ? team1Score > team2Score : team2Score > team1Score;
     return isWinner 
-      ? 'text-green-600 bg-green-50 border-green-200' 
-      : 'text-red-600 bg-red-50 border-red-200';
+      ? 'text-white bg-[#005C53] border-black' 
+      : 'text-yellow bg-[#F59520] border-black-200';
   };
 
   return (
@@ -84,9 +86,14 @@ export default function MatchHistory({ matches, isGoalsEnabled }: MatchHistoryPr
                   <div className="space-y-2">
                     {match.team1Players.map((player) => (
                       <div key={player.playerId} className="flex items-center justify-between text-sm">
-                        <span>{player.fullName}</span>
+                        <div className="flex items-center">
+                          <span>{player.fullName}</span>
+                          {isMvpEnabled && player.playerId === match.mvpPlayerId && (
+                            <Trophy className="h-4 w-4 text-white ml-2" />
+                          )}
+                        </div>
                         {isGoalsEnabled && player.goals > 0 && (
-                          <span className="flex items-center text-blue-600 font-medium">
+                          <span className="flex items-center text-[#BF416F] font-medium">
                             <Target className="h-3 w-3 mr-1" />
                             {player.goals}
                           </span>
@@ -109,9 +116,14 @@ export default function MatchHistory({ matches, isGoalsEnabled }: MatchHistoryPr
                   <div className="space-y-2">
                     {match.team2Players.map((player) => (
                       <div key={player.playerId} className="flex items-center justify-between text-sm">
-                        <span>{player.fullName}</span>
+                        <div className="flex items-center">
+                          <span>{player.fullName}</span>
+                          {isMvpEnabled && player.playerId === match.mvpPlayerId && (
+                            <Trophy className="h-4 w-4 text-black ml-2" />
+                          )}
+                        </div>
                         {isGoalsEnabled && player.goals > 0 && (
-                          <span className="flex items-center text-blue-600 font-medium">
+                          <span className="flex items-center text-[#BF416F] font-medium">
                             <Target className="h-3 w-3 mr-1" />
                             {player.goals}
                           </span>

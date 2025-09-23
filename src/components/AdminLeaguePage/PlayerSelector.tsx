@@ -138,7 +138,7 @@ export default function PlayerSelector({
     if (!selectedPlayer) return '';
     
     if (selectedPlayer.type === 'new') {
-      return 'text-blue-700 bg-blue-50 border-blue-200';
+      return 'text-[#9f1a57] bg-[#fdf2f8] border-pink-200';
     }
     
     return 'text-gray-900';
@@ -158,7 +158,7 @@ export default function PlayerSelector({
           disabled={disabled}
           placeholder={placeholder}
           className={`
-            w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 disabled:bg-gray-50 disabled:cursor-not-allowed pr-8
+            w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0 disabled:bg-gray-50 disabled:cursor-not-allowed pr-8
             ${getDisplayStyle()}
             ${disabled ? 'border-gray-300' : 'border-gray-300 hover:border-gray-400'}
           `}
@@ -198,8 +198,8 @@ export default function PlayerSelector({
                       onClick={() => handleSelectExisting(player)}
                       className="w-full px-3 py-2 text-left hover:bg-gray-100 flex items-center space-x-2 transition-colors"
                     >
-                      <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                        <span className="text-xs font-medium text-green-700">
+                      <div className="flex-shrink-0 w-6 h-6 bg-[#e6ccff] rounded-full flex items-center justify-center">
+                        <span className="text-xs font-medium text-[#5c0089]">
                           {player.firstName.charAt(0).toUpperCase()}
                         </span>
                       </div>
@@ -223,7 +223,7 @@ export default function PlayerSelector({
                   <button
                     type="button"
                     onClick={handleCreateNew}
-                    className="w-full px-3 py-2 text-left hover:bg-blue-50 flex items-center space-x-2 text-blue-600 transition-colors"
+                    className="w-full px-3 py-2 text-left hover:bg-[#fdf2f8] flex items-center space-x-2 text-[#BF416F] transition-colors"
                   >
                     <Plus className="h-4 w-4" />
                     <span className="text-sm font-medium">Crear nuevo jugador</span>
@@ -235,8 +235,8 @@ export default function PlayerSelector({
             // Create new player mode
             <div className="p-3">
               <div className="flex items-center space-x-2 mb-3">
-                <User className="h-4 w-4 text-blue-600" />
-                <span className="text-sm font-medium text-blue-900">Nuevo Jugador</span>
+                <User className="h-4 w-4 text-[#BF416F]" />
+                <span className="text-sm font-medium text-pink-900">Nuevo Jugador</span>
               </div>
               
               <div className="space-y-2">
@@ -245,7 +245,7 @@ export default function PlayerSelector({
                   value={newPlayerForm.firstName}
                   onChange={(e) => setNewPlayerForm(prev => ({ ...prev, firstName: e.target.value }))}
                   placeholder="Nombre"
-                  className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#fdf2f8]0 focus:border-[#fdf2f8]0"
                   maxLength={50}
                 />
                 <input
@@ -253,7 +253,7 @@ export default function PlayerSelector({
                   value={newPlayerForm.lastName}
                   onChange={(e) => setNewPlayerForm(prev => ({ ...prev, lastName: e.target.value }))}
                   placeholder="Apellido"
-                  className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#fdf2f8]0 focus:border-[#fdf2f8]0"
                   maxLength={50}
                 />
               </div>
@@ -270,7 +270,7 @@ export default function PlayerSelector({
                   type="button"
                   onClick={handleSaveNewPlayer}
                   disabled={!newPlayerForm.firstName.trim() || !newPlayerForm.lastName.trim()}
-                  className="inline-flex items-center px-2 py-1 text-xs font-medium text-white bg-blue-600 rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="inline-flex items-center px-2 py-1 text-xs font-medium text-white bg-[#BF416F] rounded hover:bg-[#9f1a57] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   <Check className="h-3 w-3 mr-1" />
                   Crear
@@ -283,7 +283,7 @@ export default function PlayerSelector({
 
       {/* Selected player indicator */}
       {selectedPlayer && selectedPlayer.type === 'new' && (
-        <div className="mt-1 text-xs text-blue-600 flex items-center">
+        <div className="mt-1 text-xs text-[#BF416F] flex items-center">
           <Plus className="h-3 w-3 mr-1" />
           Jugador nuevo (se creará al guardar el partido)
         </div>

@@ -71,18 +71,18 @@ export default function AdminNavigation({
                   className={`
                     group relative py-4 px-1 border-b-2 font-medium text-sm transition-colors
                     ${isActive
-                      ? 'border-green-500 text-green-600'
+                      ? 'border-[#f4e6ff]0 text-[#7600B5]'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                     }
                   `}
                 >
                   <div className="flex items-center space-x-2">
-                    <span className={isActive ? 'text-green-600' : 'text-gray-400 group-hover:text-gray-600'}>
+                    <span className={isActive ? 'text-[#7600B5]' : 'text-gray-400 group-hover:text-gray-600'}>
                       {item.icon}
                     </span>
                     <span>{item.label}</span>
                     {item.badge !== undefined && item.badge > 0 && (
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#fce7f3] text-pink-800">
                         {item.badge}
                       </span>
                     )}
@@ -104,7 +104,7 @@ export default function AdminNavigation({
             <select
               value={activeSection}
               onChange={(e) => onSectionChange(e.target.value as AdminSection)}
-              className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+              className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0"
             >
               {navItems.map((item) => (
                 <option key={item.id} value={item.id}>

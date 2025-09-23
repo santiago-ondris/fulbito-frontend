@@ -133,8 +133,8 @@ export default function AddPlayerModal({
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <div className="flex items-center space-x-3">
-              <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                <User className="h-4 w-4 text-green-600" />
+              <div className="flex-shrink-0 w-8 h-8 bg-[#e6ccff] rounded-full flex items-center justify-center">
+                <User className="h-4 w-4 text-[#7600B5]" />
               </div>
               <h3 className="text-lg font-medium text-gray-900">
                 Agregar Jugador
@@ -155,8 +155,8 @@ export default function AddPlayerModal({
             
             {/* Error message */}
             {error && (
-              <div className="mb-4 bg-red-50 border border-red-200 rounded-md p-3">
-                <p className="text-sm text-red-600">{error}</p>
+              <div className="mb-4 bg-[#f3f1ff] border border-red-200 rounded-md p-3">
+                <p className="text-sm text-[#856DE2]">{error}</p>
               </div>
             )}
 
@@ -174,7 +174,7 @@ export default function AddPlayerModal({
                   value={firstName}
                   onChange={(e) => handleFirstNameChange(e.target.value)}
                   disabled={isLoading}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0 disabled:bg-gray-50 disabled:cursor-not-allowed"
                   placeholder="Juan"
                   maxLength={50}
                 />
@@ -191,7 +191,7 @@ export default function AddPlayerModal({
                   value={lastName}
                   onChange={(e) => handleLastNameChange(e.target.value)}
                   disabled={isLoading}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0 disabled:bg-gray-50 disabled:cursor-not-allowed"
                   placeholder="Pérez"
                   maxLength={50}
                 />
@@ -205,7 +205,7 @@ export default function AddPlayerModal({
                     {firstName.trim()} {lastName.trim()}
                   </p>
                   {isDuplicate() && (
-                    <p className="text-xs text-red-600 mt-1">
+                    <p className="text-xs text-[#856DE2] mt-1">
                       ⚠ Este nombre ya existe en la liga
                     </p>
                   )}
@@ -230,7 +230,7 @@ export default function AddPlayerModal({
               <button
                 type="submit"
                 disabled={isLoading || !firstName.trim() || !lastName.trim() || isDuplicate()}
-                className="w-full sm:w-auto inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full sm:w-auto inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-[#7600B5] hover:bg-[#5c0089] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f4e6ff]0 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isLoading ? (
                   <LoadingSpinner size="sm" color="white" />

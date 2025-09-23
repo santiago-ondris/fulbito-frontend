@@ -57,17 +57,17 @@ export default function LeaguesList({
   if (hasError) {
     return (
       <div className="text-center py-12">
-        <div className="bg-red-50 rounded-lg p-8 max-w-md mx-auto">
+        <div className="bg-[#f3f1ff] rounded-lg p-8 max-w-md mx-auto">
           <Trophy className="mx-auto h-12 w-12 text-red-400 mb-4" />
           <h3 className="text-lg font-medium text-red-900 mb-2">
             Error al cargar las ligas
           </h3>
-          <p className="text-red-700 mb-4">
+          <p className="text-[#6b56d4] mb-4">
             {error}
           </p>
           <button
             onClick={onRefresh}
-            className="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-md text-sm font-medium hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-[#856DE2] text-white rounded-md text-sm font-medium hover:bg-[#6b56d4] focus:outline-none focus:ring-2 focus:ring-[#f3f1ff]0 focus:ring-offset-2 transition-colors"
           >
             Reintentar
           </button>
@@ -90,7 +90,7 @@ export default function LeaguesList({
           </p>
           <Link
             to="/crear-liga"
-            className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+            className="inline-flex items-center px-6 py-3 bg-[#7600B5] text-white rounded-md text-sm font-medium hover:bg-[#5c0089] focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:ring-offset-2 transition-colors"
           >
             <PlusCircle className="h-5 w-5 mr-2" />
             Crear Primera Liga
@@ -117,7 +117,7 @@ export default function LeaguesList({
         <div className="mt-4 sm:mt-0">
           <Link
             to="/crear-liga"
-            className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-[#7600B5] text-white rounded-md text-sm font-medium hover:bg-[#5c0089] focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:ring-offset-2 transition-colors"
           >
             <PlusCircle className="h-4 w-4 mr-2" />
             Crear Nueva Liga

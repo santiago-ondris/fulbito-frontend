@@ -165,7 +165,7 @@ export default function MatchupsView() {
           <p className="text-gray-600 mb-6">{leagueError}</p>
           <Link
             to="/"
-            className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-[#7600B5] text-white rounded-md hover:bg-[#5c0089] transition-colors"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Volver al inicio
@@ -279,7 +279,7 @@ export default function MatchupsView() {
           {isLoadingMatchups && hasSelectedPlayers && (
             <div className="bg-white rounded-lg border border-gray-200 p-12">
               <div className="text-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600 mx-auto mb-4"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#7600B5] mx-auto mb-4"></div>
                 <p className="text-gray-600">Buscando enfrentamientos...</p>
               </div>
             </div>

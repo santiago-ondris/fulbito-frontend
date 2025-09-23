@@ -259,7 +259,7 @@ export default function LeagueAdmin() {
           <p className="text-gray-600 mb-6">{error}</p>
           <button 
             onClick={() => navigate('/')}
-            className="w-full px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 transition-colors"
+            className="w-full px-4 py-2 bg-[#7600B5] text-white rounded-md text-sm font-medium hover:bg-[#5c0089] transition-colors"
           >
             Volver al inicio
           </button>
@@ -277,7 +277,7 @@ export default function LeagueAdmin() {
           <p className="text-gray-600 mb-6">No se pudo cargar la información de la liga</p>
           <button 
             onClick={() => navigate('/')}
-            className="w-full px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 transition-colors"
+            className="w-full px-4 py-2 bg-[#7600B5] text-white rounded-md text-sm font-medium hover:bg-[#5c0089] transition-colors"
           >
             Volver al inicio
           </button>
@@ -308,8 +308,8 @@ export default function LeagueAdmin() {
       {/* Success message */}
       {successMessage && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-          <div className="bg-green-50 border border-green-200 rounded-md p-4">
-            <p className="text-sm text-green-600">{successMessage}</p>
+          <div className="bg-[#f4e6ff] border border-[#d1b3ff] rounded-md p-4">
+            <p className="text-sm text-[#7600B5]">{successMessage}</p>
           </div>
         </div>
       )}
@@ -336,7 +336,7 @@ export default function LeagueAdmin() {
               <h2 className="text-2xl font-semibold text-gray-900">Gestión de Jugadores</h2>
               <button
                 onClick={() => setIsAddPlayerModalOpen(true)}
-                className="px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+                className="px-4 py-2 bg-[#7600B5] text-white rounded-md text-sm font-medium hover:bg-[#5c0089] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f4e6ff]0 transition-colors"
               >
                 Agregar Jugador
               </button>

@@ -107,12 +107,12 @@ class MatchupsService {
   // Helper para obtener clase CSS según resultado
   getResultStyleClass(result: string, playerName: string): string {
     if (result === 'Empate') {
-      return 'text-yellow-600 bg-yellow-50';
+      return 'text-[#404040] bg-[#f7f7f7]';
     }
     if (result.includes(`Victoria de ${playerName}`)) {
-      return 'text-green-600 bg-green-50';
+      return 'text-[#7600B5] bg-[#f4e6ff]';
     }
-    return 'text-red-600 bg-red-50';
+    return 'text-[#856DE2] bg-[#f3f1ff]';
   }
 
   createShortSummary(stats: MatchupStats): string {

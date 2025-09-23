@@ -39,7 +39,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50/30">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-[#f4e6ff]/30">
       {/* Header */}
       <header className="bg-white/90 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,14 +47,14 @@ export default function Home() {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <Users className="h-8 w-8 text-green-600 group-hover:animate-heartbeat transition-all duration-300" />
+                  <Users className="h-8 w-8 text-[#7600B5] group-hover:animate-heartbeat transition-all duration-300" />
                   <div className="absolute -inset-1 bg-green-400 rounded-full opacity-30 group-hover:animate-pulse-glow"></div>
                 </div>
                 <div className="transition-all duration-300 group-hover:scale-105">
-                  <h1 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-green-700 bg-clip-text text-transparent">
+                  <h1 className="text-xl font-bold bg-gradient-to-r from-gray-900 to-[#5c0089] bg-clip-text text-transparent">
                     Fulbito
                   </h1>
-                  <p className="text-xs text-gray-500 group-hover:text-green-600 transition-colors duration-300">
+                  <p className="text-xs text-gray-500 group-hover:text-[#7600B5] transition-colors duration-300">
                     Maestro Gringo
                   </p>
                 </div>
@@ -69,9 +69,9 @@ export default function Home() {
                 // Authenticated state
                 <div className="flex items-center space-x-3">
                   <div className="flex items-center space-x-2 text-sm group">
-                    <User className="h-4 w-4 text-gray-500 group-hover:text-green-600 transition-colors duration-300" />
+                    <User className="h-4 w-4 text-gray-500 group-hover:text-[#7600B5] transition-colors duration-300" />
                     <span className="text-gray-700">
-                      Hola, <span className="font-medium bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+                      Hola, <span className="font-medium bg-gradient-to-r from-[#7600B5] to-[#5c0089] bg-clip-text text-transparent">
                         {user.firstName}
                       </span>
                     </span>
@@ -88,7 +88,7 @@ export default function Home() {
                 // Not authenticated state
                 <Link 
                   to="/login"
-                  className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-green-50 hover:border-green-300 hover:text-green-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md"
+                  className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-[#f4e6ff] hover:border-green-300 hover:text-[#7600B5] transition-all duration-300 transform hover:scale-105 hover:shadow-md"
                 >
                   <LogIn className="h-4 w-4 mr-2" />
                   Iniciar Sesión
@@ -106,7 +106,7 @@ export default function Home() {
           {/* Liga Search Section */}
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-gray-900 via-green-700 to-green-600 bg-clip-text">
+              <h2 className="text-3xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-gray-900 via-[#5c0089] to-[#7600B5] bg-clip-text">
                 Buscar Liga
               </h2>
               <p className="text-gray-600 mb-6">
@@ -115,20 +115,20 @@ export default function Home() {
               
               <div className="flex space-x-3 group">
                 <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 transition-all duration-300 group-focus-within:text-green-500 group-focus-within:scale-110" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 transition-all duration-300 group-focus-within:text-[#f4e6ff]0 group-focus-within:scale-110" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleKeyPress}
                     placeholder="Ej: 414, Vlack..."
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 focus:shadow-lg focus:scale-105"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0 transition-all duration-300 focus:shadow-lg focus:scale-105"
                   />
                 </div>
                 <button
                   onClick={handleLeagueSearch}
                   disabled={!searchQuery.trim()}
-                  className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:hover:scale-100 disabled:hover:shadow-none"
+                  className="px-8 py-3 bg-gradient-to-r from-[#7600B5] to-[#5c0089] hover:from-[#5c0089] hover:to-green-800 text-white rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:hover:scale-100 disabled:hover:shadow-none"
                 >
                   Buscar
                 </button>
@@ -146,20 +146,20 @@ export default function Home() {
           <div className="space-y-6">
             {isAuthenticated ? (
               // Authenticated sidebar
-              <div className="bg-gradient-to-br from-white to-green-50/50 rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-500 group">
+              <div className="bg-gradient-to-br from-white to-[#f4e6ff]/50 rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-500 group">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="relative">
-                    <User className="h-6 w-6 text-green-600 group-hover:animate-heartbeat" />
+                    <User className="h-6 w-6 text-[#7600B5] group-hover:animate-heartbeat" />
                     <div className="absolute -inset-1 bg-green-400 rounded-full opacity-20 group-hover:animate-pulse-glow"></div>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-green-700 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#5c0089] transition-colors duration-300">
                     Panel de Administrador
                   </h3>
                 </div>
                 <div className="space-y-4">
                   <Link 
                     to="/crear-liga"
-                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                    className="w-full inline-flex items-center justify-center px-4 py-3 bg-gradient-to-r from-[#7600B5] to-[#5c0089] hover:from-[#5c0089] hover:to-green-800 text-white rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                   >
                     <PlusCircle className="h-4 w-4 mr-2 group-hover:animate-bounce" />
                     Crear Nueva Liga
@@ -169,7 +169,7 @@ export default function Home() {
                     <p className="text-sm text-gray-500 mb-2">¿Ya tenés una liga?</p>
                     <Link
                       to="/mis-ligas"
-                      className="text-green-600 text-sm font-medium hover:text-green-700 hover:underline transition-all duration-300"
+                      className="text-[#7600B5] text-sm font-medium hover:text-[#5c0089] hover:underline transition-all duration-300"
                     >
                       Ver mis ligas →
                     </Link>
@@ -178,13 +178,13 @@ export default function Home() {
               </div>
             ) : (
               // Not authenticated sidebar
-              <div className="bg-gradient-to-br from-white to-blue-50/50 rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-500 group">
+              <div className="bg-gradient-to-br from-white to-[#fdf2f8]/50 rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-xl transition-all duration-500 group">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="relative">
-                    <LogIn className="h-6 w-6 text-blue-600 group-hover:animate-heartbeat" />
-                    <div className="absolute -inset-1 bg-blue-400 rounded-full opacity-20 group-hover:animate-pulse-glow"></div>
+                    <LogIn className="h-6 w-6 text-[#BF416F] group-hover:animate-heartbeat" />
+                    <div className="absolute -inset-1 bg-pink-400 rounded-full opacity-20 group-hover:animate-pulse-glow"></div>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#9f1a57] transition-colors duration-300">
                     ¿Sos administrador?
                   </h3>
                 </div>
@@ -195,7 +195,7 @@ export default function Home() {
                   
                   <Link 
                     to="/login"
-                    className="w-full inline-flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md"
+                    className="w-full inline-flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-[#fdf2f8] hover:border-pink-300 hover:text-[#BF416F] transition-all duration-300 transform hover:scale-105 hover:shadow-md"
                   >
                     <LogIn className="h-4 w-4 mr-2" />
                     Iniciar Sesión
@@ -222,7 +222,7 @@ export default function Home() {
         {/* Features Section */}
         <div className="mt-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-gray-900 via-green-700 to-green-600 bg-clip-text">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-gray-900 via-[#5c0089] to-[#7600B5] bg-clip-text">
               AGRADECIMIENTOS
             </h2>
             <p className="text-gray-600 text-lg">
@@ -233,11 +233,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
             <div className="group bg-white rounded-xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
-              <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl mb-6 group-hover:animate-float">
-                <Users className="h-8 w-8 text-green-600 group-hover:animate-heartbeat" />
+              <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#e6ccff] to-[#d1b3ff] rounded-2xl mb-6 group-hover:animate-float">
+                <Users className="h-8 w-8 text-[#7600B5] group-hover:animate-heartbeat" />
                 <div className="absolute -inset-2 bg-green-400 rounded-2xl opacity-20 group-hover:animate-pulse-glow"></div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-700 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#5c0089] transition-colors duration-300">
                 Mi gringo
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -247,11 +247,11 @@ export default function Home() {
             
             {/* Feature 2 */}
             <div className="group bg-white rounded-xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
-              <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl mb-6 group-hover:animate-float" style={{ animationDelay: '0.2s' }}>
-                <PlusCircle className="h-8 w-8 text-blue-600 group-hover:animate-heartbeat" />
-                <div className="absolute -inset-2 bg-blue-400 rounded-2xl opacity-20 group-hover:animate-pulse-glow"></div>
+              <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#fce7f3] to-pink-200 rounded-2xl mb-6 group-hover:animate-float" style={{ animationDelay: '0.2s' }}>
+                <PlusCircle className="h-8 w-8 text-[#BF416F] group-hover:animate-heartbeat" />
+                <div className="absolute -inset-2 bg-pink-400 rounded-2xl opacity-20 group-hover:animate-pulse-glow"></div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#9f1a57] transition-colors duration-300">
                 Ger
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -262,10 +262,10 @@ export default function Home() {
             {/* Feature 3 */}
             <div className="group bg-white rounded-xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
               <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl mb-6 group-hover:animate-float" style={{ animationDelay: '0.4s' }}>
-                <Search className="h-8 w-8 text-purple-600 group-hover:animate-heartbeat" />
+                <Search className="h-8 w-8 text-[#F23869] group-hover:animate-heartbeat" />
                 <div className="absolute -inset-2 bg-purple-400 rounded-2xl opacity-20 group-hover:animate-pulse-glow"></div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-700 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#d1205a] transition-colors duration-300">
                 Viejito
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed">

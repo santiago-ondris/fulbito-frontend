@@ -27,7 +27,7 @@ export default function LeagueHeader({
           {/* Liga Info */}
           <div className="flex-1">
             <div className="flex items-center space-x-3 mb-2">
-              <Trophy className="h-8 w-8 text-green-600" />
+              <Trophy className="h-8 w-8 text-[#7600B5]" />
               <h1 className="text-3xl font-bold text-gray-900">{name}</h1>
             </div>
             
@@ -53,13 +53,13 @@ export default function LeagueHeader({
           <div className="mt-4 lg:mt-0">
             <div className="flex flex-wrap gap-2">
               {isGoalsEnabled && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#fce7f3] text-pink-800">
                   Goles individuales
                 </span>
               )}
               
               {isWinStreakEnabled && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#e6ccff] text-green-800">
                   Rachas de victoria
                 </span>
               )}

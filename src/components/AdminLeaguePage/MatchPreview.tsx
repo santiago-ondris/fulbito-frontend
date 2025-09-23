@@ -77,11 +77,11 @@ export default function MatchPreview({
     const isWinner = result.type === 'win' && result.winner === `team${teamNumber}`;
     const isDraw = result.type === 'draw';
     
-    const bgColor = isWinner ? 'bg-green-50 border-green-200' : 
+    const bgColor = isWinner ? 'bg-purple-50 border-purple-200' : 
                    isDraw ? 'bg-yellow-50 border-yellow-200' : 
                    'bg-red-50 border-red-200';
     
-    const scoreColor = isWinner ? 'text-green-600' : 
+    const scoreColor = isWinner ? 'text-purple-600' : 
                       isDraw ? 'text-yellow-600' : 
                       'text-red-600';
 
@@ -93,7 +93,7 @@ export default function MatchPreview({
           <h3 className="font-medium text-gray-900 flex items-center">
             <Users className="h-4 w-4 mr-2" />
             Equipo {teamNumber}
-            {isWinner && <Trophy className="h-4 w-4 ml-2 text-green-600" />}
+            {isWinner && <Trophy className="h-4 w-4 ml-2 text-purple-600" />}
           </h3>
           <div className={`text-3xl font-bold ${scoreColor}`}>
             {score}
@@ -111,7 +111,7 @@ export default function MatchPreview({
                 {/* Avatar */}
                 <div className={`
                   flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium
-                  ${player.type === 'existing' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}
+                  ${player.type === 'existing' ? 'bg-purple-100 text-purple-700' : 'bg-pink-100 text-pink-700'}
                 `}>
                   {player.type === 'existing' ? 
                     getPlayerDisplayName(player).charAt(0).toUpperCase() :
@@ -125,7 +125,7 @@ export default function MatchPreview({
                     {getPlayerDisplayName(player)}
                   </p>
                   {player.type === 'new' && (
-                    <p className="text-xs text-blue-600 flex items-center">
+                    <p className="text-xs text-pink-600 flex items-center">
                       <User className="h-3 w-3 mr-1" />
                       Jugador nuevo
                     </p>
@@ -138,8 +138,8 @@ export default function MatchPreview({
                 <div className="flex items-center space-x-1">
                   {player.goals > 0 && (
                     <>
-                      <Target className="h-3 w-3 text-blue-500" />
-                      <span className="text-sm font-medium text-blue-600">
+                      <Target className="h-3 w-3 text-pink-500" />
+                      <span className="text-sm font-medium text-pink-600">
                         {player.goals}
                       </span>
                     </>
@@ -172,14 +172,14 @@ export default function MatchPreview({
       <div className="bg-white rounded-lg border border-gray-200 p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold text-gray-900 flex items-center">
-            <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+            <CheckCircle className="h-5 w-5 mr-2 text-purple-600" />
             Confirmar Partido
           </h2>
           
           {/* Result indicator */}
           <div className="text-right">
             {result.type === 'win' ? (
-              <p className="text-sm text-green-600 font-medium">
+              <p className="text-sm text-purple-600 font-medium">
                 Ganó Equipo {result.winner?.slice(-1)}
               </p>
             ) : (
@@ -252,7 +252,7 @@ export default function MatchPreview({
             {newPlayersCount > 0 && (
               <div>
                 <p className="text-gray-600">Jugadores nuevos:</p>
-                <p className="font-medium text-blue-600">{newPlayersCount}</p>
+                <p className="font-medium text-pink-600">{newPlayersCount}</p>
               </div>
             )}
             
@@ -272,14 +272,14 @@ export default function MatchPreview({
 
         {/* New players warning */}
         {newPlayersCount > 0 && (
-          <div className="bg-blue-50 border border-blue-200 rounded-md p-3">
+          <div className="bg-pink-50 border border-pink-200 rounded-md p-3">
             <div className="flex items-start space-x-2">
-              <Plus className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+              <Plus className="h-4 w-4 text-pink-600 mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-sm font-medium text-blue-900">
+                <p className="text-sm font-medium text-pink-900">
                   Se crearán {newPlayersCount} jugador(es) nuevo(s)
                 </p>
-                <p className="text-xs text-blue-700 mt-1">
+                <p className="text-xs text-pink-700 mt-1">
                   Los jugadores nuevos se agregarán automáticamente a la liga
                 </p>
               </div>
@@ -289,10 +289,10 @@ export default function MatchPreview({
 
         {/* Goals consistency check */}
         {isGoalsEnabled && (
-          <div className="bg-green-50 border border-green-200 rounded-md p-3">
+          <div className="bg-purple-50 border border-purple-200 rounded-md p-3">
             <div className="flex items-center space-x-2">
-              <CheckCircle className="h-4 w-4 text-green-600" />
-              <p className="text-sm text-green-700">
+              <CheckCircle className="h-4 w-4 text-purple-600" />
+              <p className="text-sm text-purple-700">
                 Los puntajes coinciden con los goles individuales
               </p>
             </div>

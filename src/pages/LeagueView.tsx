@@ -102,13 +102,13 @@ export default function LeagueView() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="max-w-md w-full bg-white p-8 border border-gray-200 rounded-lg text-center">
-          <AlertCircle className="mx-auto h-12 w-12 text-red-500 mb-4" />
+          <AlertCircle className="mx-auto h-12 w-12 text-[#f3f1ff]0 mb-4" />
           <h1 className="text-xl font-semibold text-gray-900 mb-2">Liga no encontrada</h1>
           <p className="text-gray-600 mb-6">{error}</p>
           <div className="space-y-3">
             <Link 
               to="/" 
-              className="w-full inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 transition-colors"
+              className="w-full inline-flex items-center justify-center px-4 py-2 bg-[#7600B5] text-white rounded-md text-sm font-medium hover:bg-[#5c0089] transition-colors"
             >
               Volver al inicio
             </Link>
@@ -145,7 +145,7 @@ export default function LeagueView() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-3 sm:py-0 sm:h-12 space-y-3 sm:space-y-0">
             <Link 
               to="/" 
-              className="inline-flex items-center text-green-600 hover:text-green-700 text-sm font-medium"
+              className="inline-flex items-center text-[#7600B5] hover:text-[#5c0089] text-sm font-medium"
             >
               <ArrowLeft className="h-4 w-4 mr-1" />
               Buscar otra liga
@@ -163,7 +163,7 @@ export default function LeagueView() {
 
               <Link
                 to={`/liga/${slug}/enfrentamientos`}
-                className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 transition-colors"
+                className="inline-flex items-center px-4 py-2 bg-[#7600B5] text-white rounded-md text-sm font-medium hover:bg-[#5c0089] transition-colors"
               >
                 <Users className="h-4 w-4 mr-2" />
                 <span className="hidden sm:inline">Ver Enfrentamientos</span>
@@ -184,12 +184,14 @@ export default function LeagueView() {
             isGoalsEnabled={league.scoring.isGoalsEnabled}
             isWinStreakEnabled={league.scoring.isWinStreakEnabled}
             isLossStreakEnabled={league.scoring.isLossStreakEnabled}
+            isMvpEnabled={league.scoring.isMvpEnabled}
           />
 
           {/* Match History - Full Width */}
           <MatchHistory
             matches={league.matches}
             isGoalsEnabled={league.scoring.isGoalsEnabled}
+            isMvpEnabled={league.scoring.isMvpEnabled}
           />
 
           {/* Bottom Section - Grid Layout */}
@@ -274,14 +276,14 @@ export default function LeagueView() {
             </div>
 
             {/* Admin Link */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h3 className="text-sm font-medium text-blue-900 mb-2">¿Sos el administrador?</h3>
-              <p className="text-xs text-blue-700 mb-3">
+            <div className="bg-[#fdf2f8] border border-pink-200 rounded-lg p-4">
+              <h3 className="text-sm font-medium text-pink-900 mb-2">¿Sos el administrador?</h3>
+              <p className="text-xs text-[#9f1a57] mb-3">
                 Iniciá sesión para agregar partidos y gestionar esta liga
               </p>
               <Link
                 to="/login"
-                className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-500"
+                className="inline-flex items-center text-sm font-medium text-[#BF416F] hover:text-[#fdf2f8]0"
               >
                 <ExternalLink className="h-4 w-4 mr-1" />
                 Administrar liga

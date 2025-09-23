@@ -223,7 +223,7 @@ export default function TeamBuilder({
                     value={teamPlayer.goals}
                     onChange={(e) => updatePlayerGoals(team, index, parseInt(e.target.value) || 0)}
                     disabled={disabled}
-                    className="w-16 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 disabled:bg-gray-50"
+                    className="w-16 px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0 disabled:bg-gray-50"
                     placeholder="0"
                   />
                   <span className="text-xs text-gray-500">goles</span>
@@ -267,7 +267,7 @@ export default function TeamBuilder({
             type="button"
             onClick={autoDistribute}
             disabled={disabled || !availableForDistribution}
-            className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f4e6ff]0 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             title={!availableForDistribution ? `Se necesitan ${playersPerTeam * 2} jugadores para auto-distribuir` : 'Distribuir jugadores aleatoriamente'}
           >
             <Shuffle className="h-4 w-4 mr-2" />
@@ -278,7 +278,7 @@ export default function TeamBuilder({
             type="button"
             onClick={clearTeams}
             disabled={disabled || (team1Players.length === 0 && team2Players.length === 0)}
-            className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f4e6ff]0 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <RotateCcw className="h-4 w-4 mr-2" />
             Limpiar
@@ -288,14 +288,14 @@ export default function TeamBuilder({
 
       {/* Error messages */}
       {errors.length > 0 && (
-        <div className="bg-red-50 border border-red-200 rounded-md p-4">
+        <div className="bg-[#f3f1ff] border border-red-200 rounded-md p-4">
           <div className="flex">
             <AlertCircle className="h-5 w-5 text-red-400 mr-2 flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="text-sm font-medium text-red-800 mb-1">
                 Completá los equipos:
               </h3>
-              <ul className="text-sm text-red-700 space-y-1">
+              <ul className="text-sm text-[#6b56d4] space-y-1">
                 {errors.map((error, index) => (
                   <li key={index}>• {error}</li>
                 ))}

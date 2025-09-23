@@ -80,6 +80,7 @@ export interface PlayerStanding {
   goalsFor?: number;
   currentWinStreak?: number;
   currentLossStreak?: number;
+  mvpsWon?: number;
   attendanceRate: number;
   winRate: number;
   drawRate: number;
@@ -93,6 +94,7 @@ export interface MatchSummary {
   team2Score: number;
   team1Players: PlayerInMatch[];
   team2Players: PlayerInMatch[];
+  mvpPlayerId?: string;
 }
 
 export interface PlayerInMatch {

@@ -49,8 +49,8 @@ export default function AdminHeader({
           <div className="flex-1">
             <div className="flex items-center space-x-3 mb-2">
               <div className="flex items-center space-x-2">
-                <Shield className="h-6 w-6 text-green-600" />
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                <Shield className="h-6 w-6 text-[#7600B5]" />
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#e6ccff] text-green-800">
                   Admin
                 </span>
               </div>

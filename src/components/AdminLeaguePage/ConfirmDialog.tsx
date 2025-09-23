@@ -30,16 +30,16 @@ export default function ConfirmDialog({
   // Type-based styling
   const typeStyles = {
     danger: {
-      icon: 'text-red-600',
-      button: 'bg-red-600 hover:bg-red-700 focus:ring-red-500'
+      icon: 'text-[#856DE2]',
+      button: 'bg-[#856DE2] hover:bg-[#6b56d4] focus:ring-[#f3f1ff]0'
     },
     warning: {
-      icon: 'text-yellow-600',
-      button: 'bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500'
+      icon: 'text-[#404040]',
+      button: 'bg-[#404040] hover:bg-yellow-700 focus:ring-[#595959]'
     },
     info: {
-      icon: 'text-blue-600',
-      button: 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500'
+      icon: 'text-[#BF416F]',
+      button: 'bg-[#BF416F] hover:bg-[#9f1a57] focus:ring-[#fdf2f8]0'
     }
   };
 

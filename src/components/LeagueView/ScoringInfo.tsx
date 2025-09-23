@@ -30,7 +30,7 @@ export default function ScoringInfo({ scoring }: ScoringInfoProps) {
         className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
       >
         <div className="flex items-center space-x-2">
-          <Info className="h-5 w-5 text-blue-600" />
+          <Info className="h-5 w-5 text-[#BF416F]" />
           <h2 className="text-lg font-medium text-gray-900">Sistema de Puntaje</h2>
         </div>
         {isExpanded ? (
@@ -51,23 +51,23 @@ export default function ScoringInfo({ scoring }: ScoringInfoProps) {
                 Puntajes por Resultado
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="text-center p-3 bg-green-50 rounded-lg">
-                  <div className="text-lg font-bold text-green-600">+{scoring.pointsPerWin}</div>
-                  <div className="text-xs text-green-700">Victoria</div>
+                <div className="text-center p-3 bg-[#f4e6ff] rounded-lg">
+                  <div className="text-lg font-bold text-[#7600B5]">+{scoring.pointsPerWin}</div>
+                  <div className="text-xs text-[#5c0089]">Victoria</div>
                 </div>
-                <div className="text-center p-3 bg-yellow-50 rounded-lg">
-                  <div className="text-lg font-bold text-yellow-600">+{scoring.pointsPerDraw}</div>
+                <div className="text-center p-3 bg-[#f7f7f7] rounded-lg">
+                  <div className="text-lg font-bold text-[#404040]">+{scoring.pointsPerDraw}</div>
                   <div className="text-xs text-yellow-700">Empate</div>
                 </div>
-                <div className="text-center p-3 bg-red-50 rounded-lg">
-                  <div className="text-lg font-bold text-red-600">
+                <div className="text-center p-3 bg-[#f3f1ff] rounded-lg">
+                  <div className="text-lg font-bold text-[#856DE2]">
                     {scoring.pointsPerLoss > 0 ? '+' : ''}{scoring.pointsPerLoss}
                   </div>
-                  <div className="text-xs text-red-700">Derrota</div>
+                  <div className="text-xs text-[#6b56d4]">Derrota</div>
                 </div>
-                <div className="text-center p-3 bg-blue-50 rounded-lg">
-                  <div className="text-lg font-bold text-blue-600">+{scoring.pointsPerMatchPlayed}</div>
-                  <div className="text-xs text-blue-700">Participar</div>
+                <div className="text-center p-3 bg-[#fdf2f8] rounded-lg">
+                  <div className="text-lg font-bold text-[#BF416F]">+{scoring.pointsPerMatchPlayed}</div>
+                  <div className="text-xs text-[#9f1a57]">Participar</div>
                 </div>
               </div>
             </div>
@@ -81,48 +81,48 @@ export default function ScoringInfo({ scoring }: ScoringInfoProps) {
                 <div className="space-y-3">
                   
                   {scoring.isGoalsEnabled && (
-                    <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                    <div className="flex items-center justify-between p-3 bg-[#fdf2f8] rounded-lg">
                       <div className="flex items-center space-x-2">
-                        <Target className="h-4 w-4 text-blue-600" />
-                        <span className="text-sm font-medium text-blue-900">Goles</span>
+                        <Target className="h-4 w-4 text-[#BF416F]" />
+                        <span className="text-sm font-medium text-pink-900">Goles</span>
                       </div>
-                      <span className="text-sm font-bold text-blue-600">
+                      <span className="text-sm font-bold text-[#BF416F]">
                         +{scoring.pointsPerGoal} por gol
                       </span>
                     </div>
                   )}
 
                   {scoring.isWinStreakEnabled && (
-                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                    <div className="flex items-center justify-between p-3 bg-[#f4e6ff] rounded-lg">
                       <div className="flex items-center space-x-2">
-                        <TrendingUp className="h-4 w-4 text-green-600" />
+                        <TrendingUp className="h-4 w-4 text-[#7600B5]" />
                         <span className="text-sm font-medium text-green-900">Racha de victorias</span>
                       </div>
-                      <span className="text-sm font-bold text-green-600">
+                      <span className="text-sm font-bold text-[#7600B5]">
                         +{scoring.pointsPerWinInStreak} por victoria en racha
                       </span>
                     </div>
                   )}
 
                   {scoring.isLossStreakEnabled && (
-                    <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+                    <div className="flex items-center justify-between p-3 bg-[#f3f1ff] rounded-lg">
                       <div className="flex items-center space-x-2">
-                        <TrendingDown className="h-4 w-4 text-red-600" />
+                        <TrendingDown className="h-4 w-4 text-[#856DE2]" />
                         <span className="text-sm font-medium text-red-900">Racha de derrotas</span>
                       </div>
-                      <span className="text-sm font-bold text-red-600">
+                      <span className="text-sm font-bold text-[#856DE2]">
                         {scoring.pointsPerLossInStreak} por derrota en racha
                       </span>
                     </div>
                   )}
 
                   {scoring.isMvpEnabled && (
-                    <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
+                    <div className="flex items-center justify-between p-3 bg-[#fef7f7] rounded-lg">
                       <div className="flex items-center space-x-2">
-                        <Trophy className="h-4 w-4 text-purple-600" />
+                        <Trophy className="h-4 w-4 text-[#F23869]" />
                         <span className="text-sm font-medium text-purple-900">MVP del Partido</span>
                       </div>
-                      <span className="text-sm font-bold text-purple-600">
+                      <span className="text-sm font-bold text-[#F23869]">
                         +{scoring.pointsPerMvp} puntos
                       </span>
                     </div>

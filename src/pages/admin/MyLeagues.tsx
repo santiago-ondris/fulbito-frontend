@@ -33,7 +33,7 @@ export default function MyLeagues() {
   if (authLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#7600B5]"></div>
       </div>
     );
   }
@@ -68,7 +68,7 @@ export default function MyLeagues() {
             {/* Left side - Title and user info */}
             <div className="flex-1">
               <div className="flex items-center space-x-3 mb-2">
-                <Users className="h-8 w-8 text-green-600" />
+                <Users className="h-8 w-8 text-[#7600B5]" />
                 <div>
                   <h1 className="text-3xl font-bold text-gray-900">Mis Ligas</h1>
                   <p className="text-gray-600">
@@ -115,7 +115,7 @@ export default function MyLeagues() {
             <div className="bg-white rounded-lg border border-gray-200 p-6">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <Users className="h-8 w-8 text-green-600" />
+                  <Users className="h-8 w-8 text-[#7600B5]" />
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
@@ -134,7 +134,7 @@ export default function MyLeagues() {
             <div className="bg-white rounded-lg border border-gray-200 p-6">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <Users className="h-8 w-8 text-blue-600" />
+                  <Users className="h-8 w-8 text-[#BF416F]" />
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
@@ -153,7 +153,7 @@ export default function MyLeagues() {
             <div className="bg-white rounded-lg border border-gray-200 p-6">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <Users className="h-8 w-8 text-purple-600" />
+                  <Users className="h-8 w-8 text-[#F23869]" />
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>

@@ -231,8 +231,8 @@ export default function AddMatchForm({
                 <div key={step.key} className="flex items-center">
                   <div className={`
                     flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors
-                    ${isActive ? 'bg-green-100 text-green-700' : ''}
-                    ${isCompleted ? 'text-green-600' : ''}
+                    ${isActive ? 'bg-[#e6ccff] text-[#5c0089]' : ''}
+                    ${isCompleted ? 'text-[#7600B5]' : ''}
                     ${!isActive && !isCompleted ? 'text-gray-500' : ''}
                   `}>
                     <Icon className="h-4 w-4" />
@@ -250,10 +250,10 @@ export default function AddMatchForm({
 
       {/* Error message */}
       {error && (
-        <div className="bg-red-50 border border-red-200 rounded-md p-4">
+        <div className="bg-[#f3f1ff] border border-red-200 rounded-md p-4">
           <div className="flex">
             <AlertCircle className="h-5 w-5 text-red-400 mr-2 flex-shrink-0" />
-            <p className="text-sm text-red-600">{error}</p>
+            <p className="text-sm text-[#856DE2]">{error}</p>
           </div>
         </div>
       )}
@@ -291,7 +291,7 @@ export default function AddMatchForm({
                   value={matchDate}
                   onChange={(e) => setMatchDate(e.target.value)}
                   disabled={isLoading}
-                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 disabled:bg-gray-50"
+                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0 disabled:bg-gray-50"
                 />
               </div>
             </div>
@@ -309,7 +309,7 @@ export default function AddMatchForm({
                 value={team1Score}
                 onChange={(e) => setTeam1Score(parseInt(e.target.value) || 0)}
                 disabled={isLoading}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 disabled:bg-gray-50 text-center text-lg font-bold"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0 disabled:bg-gray-50 text-center text-lg font-bold"
               />
             </div>
 
@@ -326,25 +326,25 @@ export default function AddMatchForm({
                 value={team2Score}
                 onChange={(e) => setTeam2Score(parseInt(e.target.value) || 0)}
                 disabled={isLoading}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 disabled:bg-gray-50 text-center text-lg font-bold"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0 disabled:bg-gray-50 text-center text-lg font-bold"
               />
             </div>
           </div>
 
           {/* Goals summary (if enabled) */}
           {isGoalsEnabled && (
-            <div className="mt-6 bg-blue-50 rounded-md p-4">
-              <h4 className="text-sm font-medium text-blue-900 mb-2">Resumen de Goles</h4>
+            <div className="mt-6 bg-pink-50 rounded-md p-4">
+              <h4 className="text-sm font-medium text-pink-900 mb-2">Resumen de Goles</h4>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <p className="text-blue-700 font-medium">Equipo 1:</p>
-                  <p className="text-blue-600">
+                  <p className="text-pink-700 font-medium">Equipo 1:</p>
+                  <p className="text-pink-600">
                     {team1Players.reduce((sum, player) => sum + (player.goals || 0), 0)} goles individuales
                   </p>
                 </div>
                 <div>
-                  <p className="text-blue-700 font-medium">Equipo 2:</p>
-                  <p className="text-blue-600">
+                  <p className="text-pink-700 font-medium">Equipo 2:</p>
+                  <p className="text-pink-600">
                     {team2Players.reduce((sum, player) => sum + (player.goals || 0), 0)} goles individuales
                   </p>
                 </div>
@@ -446,7 +446,7 @@ export default function AddMatchForm({
               type="button"
               onClick={goToNextStep}
               disabled={isLoading}
-              className="px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-4 py-2 bg-[#7600B5] text-white rounded-md text-sm font-medium hover:bg-[#5c0089] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f4e6ff]0 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Siguiente
             </button>
@@ -455,7 +455,7 @@ export default function AddMatchForm({
               type="button"
               onClick={handleSubmit}
               disabled={isLoading}
-              className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center px-4 py-2 bg-[#7600B5] text-white rounded-md text-sm font-medium hover:bg-[#5c0089] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f4e6ff]0 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {isLoading ? (
                 <LoadingSpinner size="sm" color="white" />

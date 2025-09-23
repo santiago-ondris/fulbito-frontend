@@ -61,9 +61,9 @@ export default function LeagueCard({ league }: LeagueCardProps) {
       </div>
 
       {/* League info */}
-      <div className="mb-4 p-3 bg-blue-50 rounded-lg">
-        <div className="text-xs text-blue-600 mb-1">Liga creada:</div>
-        <div className="text-sm font-medium text-blue-800">
+      <div className="mb-4 p-3 bg-[#fdf2f8] rounded-lg">
+        <div className="text-xs text-[#BF416F] mb-1">Liga creada:</div>
+        <div className="text-sm font-medium text-pink-800">
           {new Date(league.createdAt).toLocaleDateString('es-AR', {
             day: 'numeric',
             month: 'long',
@@ -78,7 +78,7 @@ export default function LeagueCard({ league }: LeagueCardProps) {
         {/* Administrar (botón principal) */}
         <Link
           to={adminUrl}
-          className="flex-1 inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors"
+          className="flex-1 inline-flex items-center justify-center px-4 py-2 bg-[#7600B5] text-white rounded-md text-sm font-medium hover:bg-[#5c0089] focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:ring-offset-2 transition-colors"
         >
           <Settings className="h-4 w-4 mr-2" />
           Administrar
@@ -98,11 +98,11 @@ export default function LeagueCard({ league }: LeagueCardProps) {
 
       {/* Quick actions hint */}
       {league.totalMatches === 0 && (
-        <div className="mt-3 p-2 bg-yellow-50 border border-yellow-200 rounded-md">
+        <div className="mt-3 p-2 bg-[#f7f7f7] border border-pink-200 rounded-md">
           <div className="flex items-center">
-            <Trophy className="h-4 w-4 text-yellow-600 mr-2" />
-            <p className="text-xs text-yellow-700">
-              ¡Empezá agregando el primer partido de tu liga!
+            <Trophy className="h-4 w-4 text-[#404040] mr-2" />
+            <p className="text-xs text-black-700">
+              Faltan partidos perro
             </p>
           </div>
         </div>

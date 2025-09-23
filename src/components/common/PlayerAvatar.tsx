@@ -38,14 +38,14 @@ export default function PlayerAvatar({
 
   if (!imageUrl || imageUrl.trim() === '') {
     return (
-      <div className={`${baseClasses} bg-green-100 text-green-700 border border-green-200`}>
+      <div className={`${baseClasses} bg-[#e6ccff] text-[#5c0089] border border-[#d1b3ff]`}>
         {getInitials()}
       </div>
     );
   }
 
   return (
-    <div className={`${baseClasses} overflow-hidden bg-green-100 text-green-700 border border-green-200`}>
+    <div className={`${baseClasses} overflow-hidden bg-[#e6ccff] text-[#5c0089] border border-[#d1b3ff]`}>
       <img
         src={imageUrl}
         alt={`${firstName} ${lastName}`}

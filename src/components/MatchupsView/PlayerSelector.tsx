@@ -73,7 +73,7 @@ export default function PlayerSelector({
           onClick={handleToggle}
           disabled={disabled}
           className={`
-            relative w-full bg-white border border-gray-300 rounded-md pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 transition-colors
+            relative w-full bg-white border border-gray-300 rounded-md pl-3 pr-10 py-2 text-left cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0 transition-colors
             ${disabled ? 'bg-gray-50 text-gray-500 cursor-not-allowed' : 'hover:border-gray-400'}
             ${selectedPlayer ? 'text-gray-900' : 'text-gray-500'}
           `}
@@ -119,7 +119,7 @@ export default function PlayerSelector({
                   placeholder="Buscar jugador..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 text-sm"
+                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#f4e6ff]0 focus:border-[#f4e6ff]0 text-sm"
                   autoFocus
                 />
               </div>
@@ -135,7 +135,7 @@ export default function PlayerSelector({
                     onClick={() => handlePlayerSelect(player)}
                     className={`
                       w-full text-left px-3 py-2 text-sm hover:bg-gray-100 flex items-center transition-colors
-                      ${selectedPlayer?.id === player.id ? 'bg-green-50 text-green-700' : 'text-gray-900'}
+                      ${selectedPlayer?.id === player.id ? 'bg-[#f4e6ff] text-[#5c0089]' : 'text-gray-900'}
                     `}
                   >
                     <User className="h-4 w-4 text-gray-400 mr-3" />

@@ -27,7 +27,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
     <div className="bg-white rounded-lg border border-gray-200 relative">
       
       {/* Header con resumen principal */}
-      <div className="px-6 py-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-t-lg">
+      <div className="px-6 py-6 bg-gradient-to-r from-[#f4e6ff] to-[#fdf2f8] rounded-t-lg">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
             Enfrentamientos Directos
@@ -49,7 +49,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
       </div>
 
       {/* Player Face-off Section - Desktop Only */}
-      <div className="hidden md:block px-6 py-8 bg-gradient-to-r from-green-50 via-gray-50 to-blue-50">
+      <div className="hidden md:block px-6 py-8 bg-gradient-to-r from-[#f4e6ff] via-gray-50 to-[#fdf2f8]">
         <div className="grid grid-cols-2 gap-8 max-w-4xl mx-auto">
           
           {/* Player 1 Large Avatar */}
@@ -58,7 +58,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
               <div className={`
                 w-80 h-80 rounded-2xl overflow-hidden border-4 shadow-xl transition-all duration-300
                 ${winner?.id === player1.id 
-                  ? 'border-green-400 ring-4 ring-green-200' 
+                  ? 'border-green-400 ring-4 ring-[#d1b3ff]' 
                   : isDraw 
                   ? 'border-yellow-400 ring-4 ring-yellow-200'
                   : 'border-gray-300'
@@ -73,8 +73,8 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
                       const parent = e.currentTarget.parentElement;
                       if (parent) {
                         parent.innerHTML = `
-                          <div class="w-full h-full bg-green-100 flex items-center justify-center">
-                            <span class="text-6xl font-bold text-green-700">
+                          <div class="w-full h-full bg-[#e6ccff] flex items-center justify-center">
+                            <span class="text-6xl font-bold text-[#5c0089]">
                               ${player1.firstName.charAt(0)}${player1.lastName.charAt(0)}
                             </span>
                           </div>
@@ -83,8 +83,8 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
                     }}
                   />
                 ) : (
-                  <div className="w-full h-full bg-green-100 flex items-center justify-center">
-                    <span className="text-6xl font-bold text-green-700">
+                  <div className="w-full h-full bg-[#e6ccff] flex items-center justify-center">
+                    <span className="text-6xl font-bold text-[#5c0089]">
                       {player1.firstName.charAt(0)}{player1.lastName.charAt(0)}
                     </span>
                   </div>
@@ -96,7 +96,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 {player1.fullName}
               </h3>
-              <div className="text-4xl font-bold text-green-600 mb-1">
+              <div className="text-4xl font-bold text-[#7600B5] mb-1">
                 {stats.player1Wins}
               </div>
               <div className="text-lg text-gray-600">
@@ -121,7 +121,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
               <div className={`
                 w-80 h-80 rounded-2xl overflow-hidden border-4 shadow-xl transition-all duration-300
                 ${winner?.id === player2.id 
-                  ? 'border-green-400 ring-4 ring-green-200' 
+                  ? 'border-green-400 ring-4 ring-[#d1b3ff]' 
                   : isDraw 
                   ? 'border-yellow-400 ring-4 ring-yellow-200'
                   : 'border-gray-300'
@@ -136,8 +136,8 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
                       const parent = e.currentTarget.parentElement;
                       if (parent) {
                         parent.innerHTML = `
-                          <div class="w-full h-full bg-blue-100 flex items-center justify-center">
-                            <span class="text-6xl font-bold text-blue-700">
+                          <div class="w-full h-full bg-[#fce7f3] flex items-center justify-center">
+                            <span class="text-6xl font-bold text-[#9f1a57]">
                               ${player2.firstName.charAt(0)}${player2.lastName.charAt(0)}
                             </span>
                           </div>
@@ -146,8 +146,8 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
                     }}
                   />
                 ) : (
-                  <div className="w-full h-full bg-blue-100 flex items-center justify-center">
-                    <span className="text-6xl font-bold text-blue-700">
+                  <div className="w-full h-full bg-[#fce7f3] flex items-center justify-center">
+                    <span className="text-6xl font-bold text-[#9f1a57]">
                       {player2.firstName.charAt(0)}{player2.lastName.charAt(0)}
                     </span>
                   </div>
@@ -159,7 +159,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 {player2.fullName}
               </h3>
-              <div className="text-4xl font-bold text-blue-600 mb-1">
+              <div className="text-4xl font-bold text-[#BF416F] mb-1">
                 {stats.player2Wins}
               </div>
               <div className="text-lg text-gray-600">
@@ -183,9 +183,9 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
           <div className={`
             p-4 rounded-lg border-2 transition-colors
             ${winner?.id === player1.id 
-              ? 'border-green-300 bg-green-50' 
+              ? 'border-green-300 bg-[#f4e6ff]' 
               : isDraw 
-              ? 'border-yellow-300 bg-yellow-50'
+              ? 'border-yellow-300 bg-[#f7f7f7]'
               : 'border-gray-300 bg-gray-50'
             }
           `}>
@@ -203,13 +203,13 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
                     {player1.fullName}
                   </h3>
                   {winner?.id === player1.id && (
-                    <Trophy className="h-5 w-5 text-yellow-500 mx-auto mt-1" />
+                    <Trophy className="h-5 w-5 text-[#595959] mx-auto mt-1" />
                   )}
                 </div>
               </div>
               
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-green-600">
+                <div className="text-3xl font-bold text-[#7600B5]">
                   {stats.player1Wins}
                 </div>
                 <div className="text-sm text-gray-600">
@@ -226,9 +226,9 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
           <div className={`
             p-4 rounded-lg border-2 transition-colors
             ${winner?.id === player2.id 
-              ? 'border-green-300 bg-green-50' 
+              ? 'border-green-300 bg-[#f4e6ff]' 
               : isDraw 
-              ? 'border-yellow-300 bg-yellow-50'
+              ? 'border-yellow-300 bg-[#f7f7f7]'
               : 'border-gray-300 bg-gray-50'
             }
           `}>
@@ -246,13 +246,13 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
                     {player2.fullName}
                   </h3>
                   {winner?.id === player2.id && (
-                    <Trophy className="h-5 w-5 text-yellow-500 mx-auto mt-1" />
+                    <Trophy className="h-5 w-5 text-[#595959] mx-auto mt-1" />
                   )}
                 </div>
               </div>
               
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-green-600">
+                <div className="text-3xl font-bold text-[#7600B5]">
                   {stats.player2Wins}
                 </div>
                 <div className="text-sm text-gray-600">
@@ -269,14 +269,14 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
         {/* Empates (si hay) */}
         {stats.draws > 0 && (
           <div className="mb-6">
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+            <div className="bg-[#f7f7f7] border border-yellow-200 rounded-lg p-4">
               <div className="text-center">
                 <div className="flex items-center justify-center mb-2">
-                  <TrendingUp className="h-5 w-5 text-yellow-600 mr-2" />
+                  <TrendingUp className="h-5 w-5 text-[#404040] mr-2" />
                   <h3 className="font-semibold text-gray-900">Empates</h3>
                 </div>
                 <div className="space-y-1">
-                  <div className="text-2xl font-bold text-yellow-600">
+                  <div className="text-2xl font-bold text-[#404040]">
                     {stats.draws}
                   </div>
                   <div className="text-sm text-gray-600">
@@ -300,21 +300,21 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
             <div className="flex rounded-full overflow-hidden bg-gray-200 h-3">
               {/* Player 1 wins */}
               <div 
-                className="bg-green-500 transition-all duration-500"
+                className="bg-[#f4e6ff]0 transition-all duration-500"
                 style={{ width: `${player1WinRate}%` }}
                 title={`${player1.firstName}: ${player1WinRate}%`}
               />
               {/* Draws */}
               {stats.draws > 0 && (
                 <div 
-                  className="bg-yellow-500 transition-all duration-500"
+                  className="bg-[#595959] transition-all duration-500"
                   style={{ width: `${drawRate}%` }}
                   title={`Empates: ${drawRate}%`}
                 />
               )}
               {/* Player 2 wins */}
               <div 
-                className="bg-blue-500 transition-all duration-500"
+                className="bg-[#fdf2f8]0 transition-all duration-500"
                 style={{ width: `${player2WinRate}%` }}
                 title={`${player2.firstName}: ${player2WinRate}%`}
               />
@@ -323,17 +323,17 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
             {/* Legend */}
             <div className="flex justify-between items-center mt-2 text-xs text-gray-600">
               <span className="flex items-center">
-                <div className="w-3 h-3 bg-green-500 rounded-full mr-1"></div>
+                <div className="w-3 h-3 bg-[#f4e6ff]0 rounded-full mr-1"></div>
                 {player1.firstName}
               </span>
               {stats.draws > 0 && (
                 <span className="flex items-center">
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full mr-1"></div>
+                  <div className="w-3 h-3 bg-[#595959] rounded-full mr-1"></div>
                   Empates
                 </span>
               )}
               <span className="flex items-center">
-                <div className="w-3 h-3 bg-blue-500 rounded-full mr-1"></div>
+                <div className="w-3 h-3 bg-[#fdf2f8]0 rounded-full mr-1"></div>
                 {player2.firstName}
               </span>
             </div>
@@ -356,7 +356,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
         {stats.totalMatches >= 3 && !isDraw && winner && (
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
             <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
-              <Trophy className="h-4 w-4 text-yellow-500" />
+              <Trophy className="h-4 w-4 text-[#595959]" />
               <span>
                 <strong className="text-gray-900">{winner.firstName}</strong> domina este enfrentamiento
               </span>

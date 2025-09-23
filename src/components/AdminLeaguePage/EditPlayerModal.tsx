@@ -166,8 +166,8 @@ export default function EditPlayerModal({
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <div className="flex items-center space-x-3">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                <User className="h-4 w-4 text-blue-600" />
+              <div className="flex-shrink-0 w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center">
+                <User className="h-4 w-4 text-pink-600" />
               </div>
               <div>
                 <h3 className="text-lg font-medium text-gray-900">
@@ -200,8 +200,8 @@ export default function EditPlayerModal({
 
             {/* Changes indicator */}
             {hasChanges() && !error && (
-              <div className="mb-4 bg-blue-50 border border-blue-200 rounded-md p-3">
-                <p className="text-sm text-blue-600">
+              <div className="mb-4 bg-pink-50 border border-pink-200 rounded-md p-3">
+                <p className="text-sm text-pink-600">
                   📝 Hay cambios sin guardar
                 </p>
               </div>
@@ -221,7 +221,7 @@ export default function EditPlayerModal({
                   value={firstName}
                   onChange={(e) => handleFirstNameChange(e.target.value)}
                   disabled={isLoading}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
                   placeholder="Juan"
                   maxLength={50}
                 />
@@ -238,7 +238,7 @@ export default function EditPlayerModal({
                   value={lastName}
                   onChange={(e) => handleLastNameChange(e.target.value)}
                   disabled={isLoading}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 disabled:bg-gray-50 disabled:cursor-not-allowed"
                   placeholder="Pérez"
                   maxLength={50}
                 />
@@ -264,7 +264,7 @@ export default function EditPlayerModal({
                       type="button"
                       onClick={handleReset}
                       disabled={isLoading}
-                      className="text-xs text-blue-600 hover:text-blue-700 disabled:opacity-50"
+                      className="text-xs text-pink-600 hover:text-pink-700 disabled:opacity-50"
                     >
                       Deshacer
                     </button>
@@ -300,7 +300,7 @@ export default function EditPlayerModal({
               <button
                 type="submit"
                 disabled={isLoading || !firstName.trim() || !lastName.trim() || isDuplicate() || !hasChanges()}
-                className="w-full sm:w-auto inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full sm:w-auto inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isLoading ? (
                   <LoadingSpinner size="sm" color="white" />

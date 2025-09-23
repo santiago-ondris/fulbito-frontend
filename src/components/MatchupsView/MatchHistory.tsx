@@ -106,10 +106,10 @@ export default function MatchHistory({
                 <div className={`
                   p-3 rounded-lg border-2 transition-colors
                   ${match.player1Details.wasInWinningTeam 
-                    ? 'border-green-200 bg-green-50' 
+                    ? 'border-purple-200 bg-purple-50' 
                     : match.result === 'Empate' 
-                    ? 'border-yellow-200 bg-yellow-50'
-                    : 'border-red-200 bg-red-50'
+                    ? 'border-black-200 bg-black-50'
+                    : 'border-white-200 bg-white-50'
                   }
                 `}>
                   <div className="flex items-center justify-between">
@@ -141,10 +141,10 @@ export default function MatchHistory({
                 <div className={`
                   p-3 rounded-lg border-2 transition-colors
                   ${match.player2Details.wasInWinningTeam 
-                    ? 'border-green-200 bg-green-50' 
+                    ? 'border-purple-200 bg-purple-50' 
                     : match.result === 'Empate' 
-                    ? 'border-yellow-200 bg-yellow-50'
-                    : 'border-red-200 bg-red-50'
+                    ? 'border-black-200 bg-black-50'
+                    : 'border-white-200 bg-white-50'
                   }
                 `}>
                   <div className="flex items-center justify-between">
@@ -183,10 +183,10 @@ export default function MatchHistory({
 // Helper function para obtener clases CSS del resultado
 function getResultClass(result: string, player1Name: string, player2Name: string): string {
   if (result === 'Empate') {
-    return 'bg-yellow-100 text-yellow-800';
+    return 'bg-black-100 text-black-800';
   }
   if (result.includes(`Victoria de ${player1Name}`) || result.includes(`Victoria de ${player2Name}`)) {
-    return 'bg-green-100 text-green-800';
+    return 'bg-purple-100 text-purple-800';
   }
-  return 'bg-gray-100 text-gray-800';
+  return 'bg-white-100 text-white-800';
 }

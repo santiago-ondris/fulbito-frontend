@@ -15,6 +15,7 @@ interface PlayerStanding {
   goalsFor?: number;
   currentWinStreak?: number;
   currentLossStreak?: number;
+  mvpsWon?: number;
   attendanceRate: number;
   winRate: number;
   drawRate: number;
@@ -26,22 +27,24 @@ interface PlayerStandingsProps {
   isGoalsEnabled: boolean;
   isWinStreakEnabled: boolean;
   isLossStreakEnabled: boolean;
+  isMvpEnabled: boolean;
 }
 
 export default function PlayerStandings({
   standings,
   isGoalsEnabled,
   isWinStreakEnabled,
-  isLossStreakEnabled
+  isLossStreakEnabled,
+  isMvpEnabled,
 }: PlayerStandingsProps) {
   const getPositionIcon = (position: number) => {
     switch (position) {
       case 1:
-        return <Trophy className="h-5 w-5 text-yellow-500" />;
+        return <Trophy className="h-5 w-5 text-[#595959]" />;
       case 2:
         return <Medal className="h-5 w-5 text-gray-400" />;
       case 3:
-        return <Award className="h-5 w-5 text-yellow-600" />;
+        return <Award className="h-5 w-5 text-[#404040]" />;
       default:
         return <span className="w-5 h-5 flex items-center justify-center text-sm font-medium text-gray-500">{position}</span>;
     }
@@ -50,11 +53,11 @@ export default function PlayerStandings({
   const getPositionBg = (position: number) => {
     switch (position) {
       case 1:
-        return 'bg-yellow-50 border-yellow-200';
+        return 'bg-[#f7f7f7] border-yellow-200';
       case 2:
         return 'bg-gray-50 border-gray-200';
       case 3:
-        return 'bg-yellow-50 border-yellow-100';
+        return 'bg-[#f7f7f7] border-yellow-100';
       default:
         return 'bg-white border-gray-200';
     }
@@ -107,6 +110,12 @@ export default function PlayerStandings({
               <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                 % Asist.
               </th>
+
+              {isMvpEnabled && (
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  MVPs
+                </th>
+              )}
             </tr>
           </thead>
           
@@ -149,20 +158,20 @@ export default function PlayerStandings({
                     {player.matchesPlayed}
                   </td>
                   
-                  <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-green-600 font-medium">
+                  <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-[#7600B5] font-medium">
                     {player.matchesWon}
                   </td>
                   
-                  <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-yellow-600 font-medium">
+                  <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-[#404040] font-medium">
                     {player.matchesDrawn}
                   </td>
                   
-                  <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-red-600 font-medium">
+                  <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-[#856DE2] font-medium">
                     {player.matchesLost}
                   </td>
                   
                   {isGoalsEnabled && (
-                    <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-blue-600 font-medium">
+                    <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-[#BF416F] font-medium">
                       {player.goalsFor || 0}
                     </td>
                   )}
@@ -170,12 +179,12 @@ export default function PlayerStandings({
                   {(isWinStreakEnabled || isLossStreakEnabled) && (
                     <td className="px-6 py-4 whitespace-nowrap text-center">
                       {player.currentWinStreak && player.currentWinStreak > 0 ? (
-                        <span className="inline-flex items-center text-sm text-green-600 font-medium">
+                        <span className="inline-flex items-center text-sm text-[#7600B5] font-medium">
                           <TrendingUp className="h-4 w-4 mr-1" />
                           {player.currentWinStreak}
                         </span>
                       ) : player.currentLossStreak && player.currentLossStreak > 0 ? (
-                        <span className="inline-flex items-center text-sm text-red-600 font-medium">
+                        <span className="inline-flex items-center text-sm text-[#856DE2] font-medium">
                           <TrendingDown className="h-4 w-4 mr-1" />
                           {player.currentLossStreak}
                         </span>
@@ -188,6 +197,12 @@ export default function PlayerStandings({
                   <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-600">
                     {player.attendanceRate.toFixed(1)}%
                   </td>
+
+                  {isMvpEnabled && (
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      {player.mvpsWon || 0}
+                    </td>
+                  )}
                   
                 </tr>
               );

@@ -94,14 +94,14 @@ export default function PlayerImageUpload({
       <div className="flex items-center space-x-2">
         
         {uploadSuccess && (
-          <div className="flex items-center text-green-600">
+          <div className="flex items-center text-[#7600B5]">
             <Check className="h-4 w-4 mr-1" />
             <span className="text-xs">Actualizada</span>
           </div>
         )}
 
         {error && (
-          <div className="flex items-center text-red-600 max-w-xs">
+          <div className="flex items-center text-[#856DE2] max-w-xs">
             <AlertCircle className="h-4 w-4 mr-1 flex-shrink-0" />
             <span className="text-xs truncate" title={error}>{error}</span>
           </div>
@@ -118,7 +118,7 @@ export default function PlayerImageUpload({
         <button
           onClick={triggerFileSelect}
           disabled={isUploading}
-          className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#f4e6ff]0 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isUploading ? (
             <>
