@@ -7,6 +7,7 @@ interface Player {
   firstName: string;
   lastName: string;
   fullName: string;
+  imageUrl?: string;
 }
 
 interface EditPlayerModalProps {

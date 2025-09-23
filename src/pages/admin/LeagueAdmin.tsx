@@ -18,6 +18,8 @@ import EditPlayerModal from '../../components/AdminLeaguePage/EditPlayerModal';
 
 // Match section components
 import AddMatchForm, { type MatchData } from '../../components/AdminLeaguePage/AddMatchForm';
+import PlayerImageUpload from '../../components/AdminLeaguePage/PlayerImageUpload';
+import { Camera } from 'lucide-react';
 
 interface Player {
   id: string;
@@ -29,6 +31,7 @@ interface Player {
   matchesWon?: number;
   totalPoints?: number;
   goalsFor?: number;
+  imageUrl?: string
 }
 
 export default function LeagueAdmin() {
@@ -87,7 +90,8 @@ export default function LeagueAdmin() {
         firstName: standing.firstName,
         lastName: standing.lastName,
         fullName: standing.fullName,
-        createdAt: new Date().toISOString(), // Temporal - el backend no tiene este campo
+        imageUrl: standing.imageUrl,
+        createdAt: new Date().toISOString(),
         matchesPlayed: standing.matchesPlayed,
         matchesWon: standing.matchesWon,
         totalPoints: standing.totalPoints,
@@ -178,6 +182,26 @@ export default function LeagueAdmin() {
     });
   };
 
+  const handleImageUpdate = async (playerId: string, imageFile: File) => {
+  if (!id) return;
+
+  try {
+    const response = await playerService.updatePlayerImage(id, playerId, imageFile);
+    
+    if (response.success) {
+      setSuccessMessage('Imagen actualizada exitosamente');
+      
+      setPlayers(prev => prev.map(player => 
+        player.id === playerId 
+          ? { ...player, imageUrl: response.imageUrl }
+          : player
+      ));
+    }
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+};
+
   // Match management functions
   const handleAddMatch = async (matchData: MatchData) => {
     if (!id) return;
@@ -262,8 +286,6 @@ export default function LeagueAdmin() {
     );
   }
 
-  // console.log('Liga scoring:', league.scoring);
-  // console.log('MVP enabled:', league.scoring.isMvpEnabled)
   return (
     <div className="min-h-screen bg-gray-50">
       
@@ -330,6 +352,33 @@ export default function LeagueAdmin() {
               onDeletePlayer={handleDeletePlayer}
               isGoalsEnabled={league.scoring.isGoalsEnabled}
             />
+
+            {/* Player Images Section */}
+            <div className="bg-white rounded-lg border border-gray-200 p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-medium text-gray-900">Imágenes de Jugadores</h3>
+                <div className="text-sm text-gray-500">
+                  {players.filter(p => p.imageUrl).length}/{players.length} con imagen
+                </div>
+              </div>
+
+              {players.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  <Camera className="mx-auto h-12 w-12 text-gray-300 mb-4" />
+                  <p>No hay jugadores en esta liga</p>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {players.map(player => (
+                    <PlayerImageUpload
+                      key={player.id}
+                      player={player}
+                      onImageUpdate={handleImageUpdate}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         )}
 

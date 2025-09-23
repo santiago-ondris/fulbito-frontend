@@ -27,6 +27,12 @@ export interface DeletePlayerResponse {
   message: string;
 }
 
+export interface UpdatePlayerImageResponse {
+  success: boolean;
+  message: string;
+  imageUrl?: string;
+}
+
 export interface Player {
   id: string;
   firstName: string;
@@ -35,6 +41,7 @@ export interface Player {
   leagueId: string;
   createdAt: string;
   updatedAt: string;
+  imageUrl?: string;
 }
 
 class PlayerService {
@@ -73,6 +80,30 @@ class PlayerService {
     try {
       const response = await api.delete<DeletePlayerResponse>(
         `/api/leagues/${leagueId}/players/${playerId}`
+      );
+      return response.data;
+    } catch (error: any) {
+      throw this.handleError(error);
+    }
+  }
+
+  async updatePlayerImage(
+    leagueId: string, 
+    playerId: string, 
+    imageFile: File
+  ): Promise<UpdatePlayerImageResponse> {
+    try {
+      const formData = new FormData();
+      formData.append('image', imageFile);
+  
+      const response = await api.post<UpdatePlayerImageResponse>(
+        `/api/leagues/${leagueId}/players/${playerId}/image`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          }
+        }
       );
       return response.data;
     } catch (error: any) {

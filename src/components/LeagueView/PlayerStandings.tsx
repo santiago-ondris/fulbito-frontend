@@ -1,6 +1,8 @@
 import { Trophy, Medal, Award, TrendingUp, TrendingDown } from 'lucide-react';
+import PlayerAvatar from '../common/PlayerAvatar';
 
 interface PlayerStanding {
+  imageUrl?: string;
   playerId: string;
   firstName: string;
   lastName: string;
@@ -120,9 +122,20 @@ export default function PlayerStandings({
                     </div>
                   </td>
                   
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">
-                      {player.fullName}
+                  <td className="px-6 py-6 whitespace-nowrap">
+                    <div className="flex items-center">
+                      <PlayerAvatar
+                        imageUrl={player.imageUrl}
+                        firstName={player.firstName}
+                        lastName={player.lastName}
+                        size="lg"
+                        className="mr-4"
+                      />
+                      <div>
+                        <div className="text-sm font-medium text-gray-900">
+                          {player.fullName}
+                        </div>
+                      </div>
                     </div>
                   </td>
                   
@@ -175,6 +188,7 @@ export default function PlayerStandings({
                   <td className="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-600">
                     {player.attendanceRate.toFixed(1)}%
                   </td>
+                  
                 </tr>
               );
             })}

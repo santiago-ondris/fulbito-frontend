@@ -19,6 +19,7 @@ export interface PlayerSummary {
   firstName: string;
   lastName: string;
   fullName: string;
+  imageUrl?: string;
 }
 
 export interface MatchupStats {
@@ -49,6 +50,7 @@ export interface Player {
   firstName: string;
   lastName: string;
   fullName: string;
+  imageUrl?: string;
 }
 
 class MatchupsService {

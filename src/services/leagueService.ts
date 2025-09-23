@@ -71,6 +71,7 @@ export interface PlayerStanding {
   firstName: string;
   lastName: string;
   fullName: string;
+  imageUrl?: string;
   totalPoints: number;
   matchesPlayed: number;
   matchesWon: number;

@@ -176,28 +176,24 @@ export default function LeagueView() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="space-y-8">
           
-          {/* Main Content - Left Side */}
-          <div className="lg:col-span-2 space-y-8">
-            
-            {/* Player Standings */}
-            <PlayerStandings
-              standings={league.playerStandings}
-              isGoalsEnabled={league.scoring.isGoalsEnabled}
-              isWinStreakEnabled={league.scoring.isWinStreakEnabled}
-              isLossStreakEnabled={league.scoring.isLossStreakEnabled}
-            />
+          {/* Player Standings - Full Width */}
+          <PlayerStandings
+            standings={league.playerStandings}
+            isGoalsEnabled={league.scoring.isGoalsEnabled}
+            isWinStreakEnabled={league.scoring.isWinStreakEnabled}
+            isLossStreakEnabled={league.scoring.isLossStreakEnabled}
+          />
 
-            {/* Match History */}
-            <MatchHistory
-              matches={league.matches}
-              isGoalsEnabled={league.scoring.isGoalsEnabled}
-            />
-          </div>
+          {/* Match History - Full Width */}
+          <MatchHistory
+            matches={league.matches}
+            isGoalsEnabled={league.scoring.isGoalsEnabled}
+          />
 
-          {/* Sidebar - Right Side */}
-          <div className="space-y-6">
+          {/* Bottom Section - Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             
             {/* Scoring System Info */}
             <ScoringInfo scoring={league.scoring} />
