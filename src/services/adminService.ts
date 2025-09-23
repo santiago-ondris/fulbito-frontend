@@ -28,7 +28,7 @@ class AdminService {
   }
 
   // Helper para formatear fecha de última actividad
-  formatLastActivity(lastMatchDate: string, createdAt: string): string {
+  formatLastActivity(lastMatchDate: string, _createdAt: string): string {
     if (!lastMatchDate || lastMatchDate === '0001-01-01T00:00:00') {
       // No hay partidos jugados
       return 'Sin partidos aún';
@@ -56,7 +56,7 @@ class AdminService {
   }
 
   // Helper para obtener estado de la liga
-  getLeagueStatus(totalMatches: number, totalPlayers: number): {
+  getLeagueStatus(totalMatches: number, _totalPlayers: number): {
     status: 'active' | 'starting' | 'inactive';
     label: string;
     color: string;
