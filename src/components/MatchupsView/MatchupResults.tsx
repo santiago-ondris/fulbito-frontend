@@ -1,6 +1,5 @@
 import { Trophy, TrendingUp, Calendar } from 'lucide-react';
 import matchupsService, { type MatchupStats, type PlayerSummary } from '../../services/matchupsService';
-import PlayerAvatar from '../common/PlayerAvatar';
 
 interface MatchupResultsProps {
   stats: MatchupStats;
