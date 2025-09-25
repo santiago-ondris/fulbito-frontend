@@ -121,7 +121,7 @@ export default function CreateLeague() {
   if (authLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-pink-600"></div>
       </div>
     );
   }
@@ -134,14 +134,14 @@ export default function CreateLeague() {
         <div className="mb-8">
           <Link 
             to="/" 
-            className="inline-flex items-center text-green-600 hover:text-green-700 text-sm font-medium mb-4"
+            className="inline-flex items-center text-pink-600 hover:text-pink-700 text-sm font-medium mb-4"
           >
             <ArrowLeft className="h-4 w-4 mr-1" />
             Volver al inicio
           </Link>
           
           <div className="flex items-center space-x-3">
-            <Users className="h-8 w-8 text-green-600" />
+            <Users className="h-8 w-8 text-pink-600" />
             <div>
               <h1 className="text-3xl font-bold text-gray-900">Crear Nueva Liga</h1>
               <p className="text-gray-600">Configurá tu liga personalizada con el sistema de puntaje que prefieras</p>
@@ -157,8 +157,8 @@ export default function CreateLeague() {
         )}
         
         {success && (
-          <div className="mb-6 bg-green-50 border border-green-200 rounded-md p-4">
-            <p className="text-sm text-green-600">{success}</p>
+          <div className="mb-6 bg-pink-50 border border-pink-200 rounded-md p-4">
+            <p className="text-sm text-pink-600">{success}</p>
           </div>
         )}
 
@@ -179,7 +179,7 @@ export default function CreateLeague() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                   placeholder="Liga de los Viernes"
                 />
               </div>
@@ -192,7 +192,7 @@ export default function CreateLeague() {
                   id="playersPerTeam"
                   value={formData.playersPerTeam}
                   onChange={(e) => setFormData({ ...formData, playersPerTeam: Number(e.target.value) })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                 >
                   <option value={5}>5 vs 5</option>
                   <option value={6}>6 vs 6</option>
@@ -220,7 +220,7 @@ export default function CreateLeague() {
                   type="number"
                   value={formData.pointsPerWin}
                   onChange={(e) => setFormData({ ...formData, pointsPerWin: Number(e.target.value) })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                 />
               </div>
               
@@ -232,7 +232,7 @@ export default function CreateLeague() {
                   type="number"
                   value={formData.pointsPerDraw}
                   onChange={(e) => setFormData({ ...formData, pointsPerDraw: Number(e.target.value) })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                 />
               </div>
               
@@ -244,7 +244,7 @@ export default function CreateLeague() {
                   type="number"
                   value={formData.pointsPerLoss}
                   onChange={(e) => setFormData({ ...formData, pointsPerLoss: Number(e.target.value) })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                 />
               </div>
               
@@ -256,7 +256,7 @@ export default function CreateLeague() {
                   type="number"
                   value={formData.pointsPerMatchPlayed}
                   onChange={(e) => setFormData({ ...formData, pointsPerMatchPlayed: Number(e.target.value) })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                 />
               </div>
             </div>
@@ -276,7 +276,7 @@ export default function CreateLeague() {
                   id="goalsEnabled"
                   checked={formData.isGoalsEnabled}
                   onChange={(e) => setFormData({ ...formData, isGoalsEnabled: e.target.checked })}
-                  className="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                  className="mt-1 h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded"
                 />
                 <div className="flex-1">
                   <label htmlFor="goalsEnabled" className="text-sm font-medium text-gray-700">
@@ -294,7 +294,7 @@ export default function CreateLeague() {
                         type="number"
                         value={formData.pointsPerGoal}
                         onChange={(e) => setFormData({ ...formData, pointsPerGoal: Number(e.target.value) })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                       />
                     </div>
                   )}
@@ -308,7 +308,7 @@ export default function CreateLeague() {
                   id="winStreakEnabled"
                   checked={formData.isWinStreakEnabled}
                   onChange={(e) => setFormData({ ...formData, isWinStreakEnabled: e.target.checked })}
-                  className="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                  className="mt-1 h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded"
                 />
                 <div className="flex-1">
                   <label htmlFor="winStreakEnabled" className="text-sm font-medium text-gray-700">
@@ -326,7 +326,7 @@ export default function CreateLeague() {
                         type="number"
                         value={formData.pointsPerWinInStreak}
                         onChange={(e) => setFormData({ ...formData, pointsPerWinInStreak: Number(e.target.value) })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                       />
                       <div className="mt-3 w-32">
                         <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -337,7 +337,7 @@ export default function CreateLeague() {
                           min="2"
                           value={formData.minWinStreakToActivate}
                           onChange={(e) => setFormData({ ...formData, minWinStreakToActivate: Number(e.target.value) })}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                         />
                       </div>
                     </div>
@@ -353,7 +353,7 @@ export default function CreateLeague() {
                   id="lossStreakEnabled"
                   checked={formData.isLossStreakEnabled}
                   onChange={(e) => setFormData({ ...formData, isLossStreakEnabled: e.target.checked })}
-                  className="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                  className="mt-1 h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded"
                 />
                 <div className="flex-1">
                   <label htmlFor="lossStreakEnabled" className="text-sm font-medium text-gray-700">
@@ -371,7 +371,7 @@ export default function CreateLeague() {
                         type="number"
                         value={formData.pointsPerLossInStreak}
                         onChange={(e) => setFormData({ ...formData, pointsPerLossInStreak: Number(e.target.value) })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                       />
                       
                       {/* ← AGREGAR ESTO: */}
@@ -384,7 +384,7 @@ export default function CreateLeague() {
                           min="2"
                           value={formData.minLossStreakToActivate}
                           onChange={(e) => setFormData({ ...formData, minLossStreakToActivate: Number(e.target.value) })}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                         />
                       </div>
                     </div>
@@ -401,7 +401,7 @@ export default function CreateLeague() {
               id="mvpEnabled"
               checked={formData.isMvpEnabled}
               onChange={(e) => setFormData({ ...formData, isMvpEnabled: e.target.checked })}
-              className="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+              className="mt-1 h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300 rounded"
             />
             <div className="flex-1">
               <label htmlFor="mvpEnabled" className="text-sm font-medium text-gray-700">
@@ -419,7 +419,7 @@ export default function CreateLeague() {
                     type="number"
                     value={formData.pointsPerMvp}
                     onChange={(e) => setFormData({ ...formData, pointsPerMvp: Number(e.target.value) })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                   />
                 </div>
               )}
@@ -439,14 +439,14 @@ export default function CreateLeague() {
                       type="text"
                       value={player.firstName}
                       onChange={(e) => updatePlayer(index, 'firstName', e.target.value)}
-                      className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                      className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                       placeholder="Nombre"
                     />
                     <input
                       type="text"
                       value={player.lastName}
                       onChange={(e) => updatePlayer(index, 'lastName', e.target.value)}
-                      className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                      className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
                       placeholder="Apellido"
                     />
                   </div>
@@ -484,7 +484,7 @@ export default function CreateLeague() {
             <button
               type="submit"
               disabled={isLoading}
-              className="px-6 py-3 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center"
+              className="px-6 py-3 bg-pink-600 text-white rounded-md text-sm font-medium hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center"
             >
               {isLoading ? (
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
