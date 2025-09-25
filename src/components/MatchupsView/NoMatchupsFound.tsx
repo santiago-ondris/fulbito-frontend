@@ -102,7 +102,7 @@ export default function NoMatchupsFound({
                 <Plus className="h-5 w-5 text-[#f4e6ff]0 mt-0.5" />
               </div>
               <div className="text-left">
-                <p className="text-sm font-medium text-green-900">
+                <p className="text-sm font-medium text-pink-900">
                   si llegaste hasta aca
                 </p>
                 <p className="text-sm text-[#5c0089] mt-1">

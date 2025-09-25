@@ -59,7 +59,7 @@ export default function LeagueHeader({
               )}
               
               {isWinStreakEnabled && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#e6ccff] text-green-800">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#e6ccff] text-violet-800">
                   Rachas de victoria
                 </span>
               )}

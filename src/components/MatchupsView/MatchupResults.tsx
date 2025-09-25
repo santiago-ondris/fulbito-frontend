@@ -58,7 +58,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
               <div className={`
                 w-80 h-80 rounded-2xl overflow-hidden border-4 shadow-xl transition-all duration-300
                 ${winner?.id === player1.id 
-                  ? 'border-green-400 ring-4 ring-[#d1b3ff]' 
+                  ? 'border-pink-400 ring-4 ring-[#d1b3ff]' 
                   : isDraw 
                   ? 'border-yellow-400 ring-4 ring-yellow-200'
                   : 'border-gray-300'
@@ -121,7 +121,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
               <div className={`
                 w-80 h-80 rounded-2xl overflow-hidden border-4 shadow-xl transition-all duration-300
                 ${winner?.id === player2.id 
-                  ? 'border-green-400 ring-4 ring-[#d1b3ff]' 
+                  ? 'border-pink-400 ring-4 ring-[#d1b3ff]' 
                   : isDraw 
                   ? 'border-yellow-400 ring-4 ring-yellow-200'
                   : 'border-gray-300'
@@ -183,7 +183,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
           <div className={`
             p-4 rounded-lg border-2 transition-colors
             ${winner?.id === player1.id 
-              ? 'border-green-300 bg-[#f4e6ff]' 
+              ? 'border-pink-300 bg-[#f4e6ff]' 
               : isDraw 
               ? 'border-yellow-300 bg-[#f7f7f7]'
               : 'border-gray-300 bg-gray-50'
@@ -226,7 +226,7 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
           <div className={`
             p-4 rounded-lg border-2 transition-colors
             ${winner?.id === player2.id 
-              ? 'border-green-300 bg-[#f4e6ff]' 
+              ? 'border-pink-300 bg-[#f4e6ff]' 
               : isDraw 
               ? 'border-yellow-300 bg-[#f7f7f7]'
               : 'border-gray-300 bg-gray-50'

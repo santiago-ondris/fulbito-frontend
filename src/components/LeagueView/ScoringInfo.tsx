@@ -96,7 +96,7 @@ export default function ScoringInfo({ scoring }: ScoringInfoProps) {
                     <div className="flex items-center justify-between p-3 bg-[#f4e6ff] rounded-lg">
                       <div className="flex items-center space-x-2">
                         <TrendingUp className="h-4 w-4 text-[#7600B5]" />
-                        <span className="text-sm font-medium text-green-900">Racha de victorias</span>
+                        <span className="text-sm font-medium text-pink-900">Racha de victorias</span>
                       </div>
                       <span className="text-sm font-bold text-[#7600B5]">
                         +{scoring.pointsPerWinInStreak} por victoria en racha

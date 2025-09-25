@@ -1,7 +1,7 @@
 import axios, { type AxiosInstance, AxiosError } from 'axios';
 
 // Base URL configurable por environment
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5204';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
 // Helper functions para JWT token
 export const tokenManager = {
