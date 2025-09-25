@@ -176,95 +176,124 @@ export default function MatchupResults({ stats, player1, player2 }: MatchupResul
       {/* Estadísticas detalladas */}
       <div className="px-6 py-6">
         
-        {/* Comparación visual de victorias */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 md:hidden">
-          
-          {/* Player 1 stats */}
-          <div className={`
-            p-4 rounded-lg border-2 transition-colors
+      {/* Comparación visual de victorias - Móvil con imagen ocupando media tarjeta */}
+      <div className="grid grid-cols-1 gap-4 mb-6 md:hidden">
+
+        {/* Player 1 card */}
+        <div
+          className={`
+            flex rounded-lg overflow-hidden border-2
             ${winner?.id === player1.id 
               ? 'border-pink-300 bg-[#f4e6ff]' 
               : isDraw 
               ? 'border-yellow-300 bg-[#f7f7f7]'
               : 'border-gray-300 bg-gray-50'
             }
-          `}>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-3">
-                <PlayerAvatar
-                  imageUrl={player1.imageUrl}
-                  firstName={player1.firstName}
-                  lastName={player1.lastName}
-                  size="lg"
-                  className="mr-3"
-                />
-                <div>
-                  <h3 className="font-semibold text-gray-900">
-                    {player1.fullName}
-                  </h3>
-                  {winner?.id === player1.id && (
-                    <Trophy className="h-5 w-5 text-[#595959] mx-auto mt-1" />
-                  )}
-                </div>
+          `}
+        >
+          {/* Imagen mitad izquierda */}
+          <div className="w-1/2 h-40 relative">
+            {player1.imageUrl ? (
+              <img
+                src={player1.imageUrl}
+                alt={player1.fullName}
+                className="absolute inset-0 w-full h-full object-cover"
+                onError={(e) => {
+                  const parent = e.currentTarget.parentElement;
+                  if (parent) {
+                    parent.innerHTML = `
+                      <div class="absolute inset-0 w-full h-full bg-[#e6ccff] flex items-center justify-center">
+                        <span class="text-4xl font-bold text-[#5c0089]">
+                          ${player1.firstName.charAt(0)}${player1.lastName.charAt(0)}
+                        </span>
+                      </div>
+                    `;
+                  }
+                }}
+              />
+            ) : (
+              <div className="absolute inset-0 w-full h-full bg-[#e6ccff] flex items-center justify-center">
+                <span className="text-4xl font-bold text-[#5c0089]">
+                  {player1.firstName.charAt(0)}{player1.lastName.charAt(0)}
+                </span>
               </div>
-              
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-[#7600B5]">
-                  {stats.player1Wins}
-                </div>
-                <div className="text-sm text-gray-600">
-                  victoria{stats.player1Wins !== 1 ? 's' : ''}
-                </div>
-                <div className="text-xs text-gray-500">
-                  {player1WinRate}% de victorias
-                </div>
-              </div>
-            </div>
+            )}
           </div>
 
-          {/* Player 2 stats */}
-          <div className={`
-            p-4 rounded-lg border-2 transition-colors
+          {/* Texto mitad derecha */}
+          <div className="w-1/2 p-4 flex flex-col items-center justify-center text-center">
+            <div className="flex items-center space-x-2 mb-1">
+              <h3 className="font-semibold text-gray-900">{player1.fullName}</h3>
+              {winner?.id === player1.id && (
+                <Trophy className="h-5 w-5 text-[#595959]" />
+              )}
+            </div>
+            <div className="text-3xl font-bold text-[#7600B5]">{stats.player1Wins}</div>
+            <div className="text-sm text-gray-600">
+              victoria{stats.player1Wins !== 1 ? 's' : ''}
+            </div>
+            <div className="text-xs text-gray-500">{player1WinRate}% de victorias</div>
+          </div>
+        </div>
+
+        {/* Player 2 card */}
+        <div
+          className={`
+            flex rounded-lg overflow-hidden border-2
             ${winner?.id === player2.id 
               ? 'border-pink-300 bg-[#f4e6ff]' 
               : isDraw 
               ? 'border-yellow-300 bg-[#f7f7f7]'
               : 'border-gray-300 bg-gray-50'
             }
-          `}>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-3">
-                <PlayerAvatar
-                  imageUrl={player2.imageUrl}
-                  firstName={player2.firstName}
-                  lastName={player2.lastName}
-                  size="lg"
-                  className="mr-3"
-                />
-                <div>
-                  <h3 className="font-semibold text-gray-900">
-                    {player2.fullName}
-                  </h3>
-                  {winner?.id === player2.id && (
-                    <Trophy className="h-5 w-5 text-[#595959] mx-auto mt-1" />
-                  )}
-                </div>
+          `}
+        >
+          {/* Imagen mitad izquierda */}
+          <div className="w-1/2 h-40 relative">
+            {player2.imageUrl ? (
+              <img
+                src={player2.imageUrl}
+                alt={player2.fullName}
+                className="absolute inset-0 w-full h-full object-cover"
+                onError={(e) => {
+                  const parent = e.currentTarget.parentElement;
+                  if (parent) {
+                    parent.innerHTML = `
+                      <div class="absolute inset-0 w-full h-full bg-[#fce7f3] flex items-center justify-center">
+                        <span class="text-4xl font-bold text-[#9f1a57]">
+                          ${player2.firstName.charAt(0)}${player2.lastName.charAt(0)}
+                        </span>
+                      </div>
+                    `;
+                  }
+                }}
+              />
+            ) : (
+              <div className="absolute inset-0 w-full h-full bg-[#fce7f3] flex items-center justify-center">
+                <span className="text-4xl font-bold text-[#9f1a57]">
+                  {player2.firstName.charAt(0)}{player2.lastName.charAt(0)}
+                </span>
               </div>
-              
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-[#7600B5]">
-                  {stats.player2Wins}
-                </div>
-                <div className="text-sm text-gray-600">
-                  victoria{stats.player2Wins !== 1 ? 's' : ''}
-                </div>
-                <div className="text-xs text-gray-500">
-                  {player2WinRate}% de victorias
-                </div>
-              </div>
+            )}
+          </div>
+
+          {/* Texto mitad derecha */}
+          <div className="w-1/2 p-4 flex flex-col items-center justify-center text-center">
+            <div className="flex items-center space-x-2 mb-1">
+              <h3 className="font-semibold text-gray-900">{player2.fullName}</h3>
+              {winner?.id === player2.id && (
+                <Trophy className="h-5 w-5 text-[#595959]" />
+              )}
             </div>
+            <div className="text-3xl font-bold text-[#7600B5]">{stats.player2Wins}</div>
+            <div className="text-sm text-gray-600">
+              victoria{stats.player2Wins !== 1 ? 's' : ''}
+            </div>
+            <div className="text-xs text-gray-500">{player2WinRate}% de victorias</div>
           </div>
         </div>
+
+      </div>
 
         {/* Empates (si hay) */}
         {stats.draws > 0 && (
